@@ -19,7 +19,7 @@
         android:id="@+id/textView"
         android:layout_width="305dp"
         android:layout_height="69dp"
-        android:text="This edit was made in Edrik Branch"
+        android:text="This edit was made in Serge Branch"
         android:textSize="24sp"
         tools:layout_editor_absoluteX="49dp"
         tools:layout_editor_absoluteY="112dp" />
