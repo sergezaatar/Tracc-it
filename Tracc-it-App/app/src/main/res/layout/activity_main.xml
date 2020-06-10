@@ -15,4 +15,13 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="305dp"
+        android:layout_height="69dp"
+        android:text="This edit was made in Edrik Branch"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="49dp"
+        tools:layout_editor_absoluteY="112dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
