@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "477834549109",
+    "firebase_url": "https://tracc-it.firebaseio.com",
+    "project_id": "tracc-it",
+    "storage_bucket": "tracc-it.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:477834549109:android:eaba4a0f8be1725cc4a53c",
+        "android_client_info": {
+          "package_name": "com.example.tracc_it"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "477834549109-e3crh7k17v72op1q71gp8unha0g19io0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4j3miP4cnkoEYVGI9WwEtFnSaTLhMgGQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "477834549109-e3crh7k17v72op1q71gp8unha0g19io0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
