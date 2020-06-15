@@ -1,0 +1,21 @@
+Index: Tracc-it-App/app/src/main/java/com/example/tracc_it/RegistrationActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Tracc-it-App/app/src/main/java/com/example/tracc_it/RegistrationActivity.java	(revision b3fef8fe4ac6dfda728c10256b55213cc556d173)
++++ Tracc-it-App/app/src/main/java/com/example/tracc_it/RegistrationActivity.java	(date 1592252344040)
+@@ -5,13 +5,8 @@
+ import androidx.appcompat.app.AppCompatActivity;
+ import android.os.Bundle;
+ import android.view.View;
+-<<<<<<< HEAD
+ import android.view.Window;
+ import android.view.WindowManager;
+-=======
+-        import android.view.Window;
+-        import android.view.WindowManager;
+->>>>>>> 0c9697e9b014844614820ee0abbf9ddbce93c8d2
+ 
+ 
+ public class RegistrationActivity extends AppCompatActivity {
