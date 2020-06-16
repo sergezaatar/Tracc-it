@@ -62,7 +62,7 @@ android:layout_gravity="center">
                         android:layout_marginTop="@dimen/loginViewsMargin">
 
                         <EditText
-                            android:id="@+id/editTextName"
+                            android:id="@+id/name"
                             style="@style/modifiedEditText"
                             android:hint="Name"
                             android:inputType="textPersonName"
@@ -75,7 +75,7 @@ android:layout_gravity="center">
                         android:layout_marginTop="@dimen/loginViewsMargin">
 
                         <EditText
-                            android:id="@+id/editTextGender"
+                            android:id="@+id/email"
                             style="@style/modifiedEditText"
                             android:hint="@string/login_email_hint"
                             android:inputType="textEmailAddress"
@@ -88,7 +88,7 @@ android:layout_gravity="center">
                         android:layout_marginTop="@dimen/loginViewsMargin">
 
                         <EditText
-                            android:id="@+id/editTextMobile"
+                            android:id="@+id/phoneNumber"
                             style="@style/modifiedEditText"
                             android:hint="Mobile Number"
                             android:inputType="phone"
@@ -101,24 +101,20 @@ android:layout_gravity="center">
                         android:layout_marginTop="@dimen/loginViewsMargin">
 
                         <EditText
-                            android:id="@+id/editTextPassword"
+                            android:id="@+id/password"
                             style="@style/modifiedEditText"
                             android:hint="@string/login_password_hint"
                             android:inputType="textPassword"
                             android:maxLines="1" />
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
-                        android:id="@+id/cirRegisterButton1"
-                        style="@style/loginButton"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="@dimen/loginViewsMargin"
-                        android:onClick="onLoginClick"
-                        android:text="Register"
-                        app:initialCornerAngle="27dp"
-                        app:spinning_bar_color="#FFF"
-                        app:spinning_bar_padding="6dp"
-                        app:spinning_bar_width="4dp" />
+
+                    <Button
+                        android:id="@+id/registerButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/themeColor"
+                        android:text="Register" />
 
                     <TextView
                         style="@style/parent"
@@ -175,11 +171,6 @@ android:layout_gravity="center">
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_facebook" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:src="@drawable/ic_google_plus" />
             </LinearLayout>
@@ -195,14 +186,4 @@ android:layout_gravity="center">
     android:layout_width="11dp"
     android:layout_height="match_parent"
     android:background="@drawable/ic_side_bg"/>
-<ImageView
-    android:layout_alignParentBottom="true"
-    android:layout_alignParentLeft="true"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:src="@drawable/ic_back_img"
-    android:layout_marginRight="11dp"
-    android:layout_marginBottom="30dp"
-    android:onClick="onLoginClick"
-    android:adjustViewBounds="false"/>
 </RelativeLayout>
