@@ -61,8 +61,8 @@ public class RegistrationActivity2 extends AppCompatActivity implements AdapterV
     ////////////////////////////////////
     ///*/   L A Y O U T    V A R I A B L E S
     /**/
-    /**/    EditText ageEditText;
-    /**/
+    /**/    EditText ageEditText, heightEditText, mdNameEditText, weightEditText;
+    /**/    EditText annualDate, lastDate;
 
     private String TAG;
 
@@ -73,9 +73,12 @@ public class RegistrationActivity2 extends AppCompatActivity implements AdapterV
         changeStatusBarColor();
 
         spinnerGender =  findViewById(R.id.spinnerGender);
-        //height = findViewById(R.id.height);
         ageEditText = findViewById(R.id.age);
-
+        heightEditText = findViewById(R.id.height);
+        mdNameEditText = findViewById(R.id.mdName);
+        annualDate = findViewById(R.id.annualCheckupDate);
+        lastDate = findViewById(R.id.lastAppointmentDate);
+        weightEditText = findViewById(R.id.weight);
 
         ArrayAdapter<CharSequence> adapterGender = ArrayAdapter.createFromResource(this,
                 R.array.gender_array, android.R.layout.simple_spinner_dropdown_item);
