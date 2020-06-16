@@ -6,11 +6,14 @@ import android.os.Build;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
         import android.view.Window;
         import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.Button;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -22,9 +25,12 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
+import com.google.firebase.inappmessaging.model.Text;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static com.example.tracc_it.R.id.registerButton;
 
 
 public class RegistrationActivity extends AppCompatActivity {
@@ -32,11 +38,50 @@ public class RegistrationActivity extends AppCompatActivity {
     private FirebaseFirestore database;
     private String TAG;
 
+    EditText name, email, phoneNumber, password;
+    Button registerButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
         changeStatusBarColor();
+
+        name = findViewById(R.id.name);
+        email = findViewById(R.id.email);
+        password = findViewById(R.id.password);
+        phoneNumber = findViewById(R.id.phoneNumber);
+        registerButton = findViewById(R.id.registerButton);
+
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                final String Name = name.getText().toString().trim();
+                String Password = password.getText().toString().trim();
+                final String Email = email.getText().toString().trim();
+                final String PhoneNumber = phoneNumber.getText().toString().trim();
+
+                if (TextUtils.isEmpty((Email))){
+                    email.setError("Email is required");
+                    return;
+                }
+                if (TextUtils.isEmpty((Password))){
+                    password.setError("Password is required");
+                    return;
+                }
+                if (TextUtils.isEmpty((PhoneNumber))){
+                    phoneNumber.setError("Phone Number is required");
+                    return;
+                }
+                if (TextUtils.isEmpty((Name))){
+                    name.setError("Name is required");
+                    return;
+                }
+
+                createAccount( Email,  Password, Name, PhoneNumber);
+            }
+        });
 
 
     }
@@ -49,10 +94,6 @@ public class RegistrationActivity extends AppCompatActivity {
         }
     }
 
-    public void onLoginClick(View view){
-
-        //createAccount();
-    }
 
     private void createAccount(String email, String password, final String name, final String phone)
     {
@@ -85,6 +126,7 @@ public class RegistrationActivity extends AppCompatActivity {
                                             @Override
                                             public void onSuccess(Void aVoid) {
                                                 Log.d(TAG, "DocumentSnapshot successfully written!");
+                                                startActivity(new Intent(RegistrationActivity.this, RegistrationActivity2.class));
                                             }
                                         })
                                         .addOnFailureListener(new OnFailureListener() {
@@ -94,7 +136,7 @@ public class RegistrationActivity extends AppCompatActivity {
                                             }
                                         });
 
-                                startActivity(new Intent(RegistrationActivity.this,RegistrationActivity2.class));
+                                //startActivity(new Intent(getApplicationContext(),RegistrationActivity2.class));
                             }
                         }
                     }
