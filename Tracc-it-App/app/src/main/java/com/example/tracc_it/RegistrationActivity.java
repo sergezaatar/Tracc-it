@@ -46,7 +46,7 @@ public class RegistrationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
         changeStatusBarColor();
-
+        mAuth = FirebaseAuth.getInstance();
         name = findViewById(R.id.name);
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
@@ -66,20 +66,20 @@ public class RegistrationActivity extends AppCompatActivity {
                     email.setError("Email is required");
                     return;
                 }
-                if (TextUtils.isEmpty((Password))){
+                else if (TextUtils.isEmpty((Password))){
                     password.setError("Password is required");
                     return;
                 }
-                if (TextUtils.isEmpty((PhoneNumber))){
+                else if (TextUtils.isEmpty((PhoneNumber))){
                     phoneNumber.setError("Phone Number is required");
                     return;
                 }
-                if (TextUtils.isEmpty((Name))){
+                else if (TextUtils.isEmpty((Name))){
                     name.setError("Name is required");
                     return;
                 }
-
-                createAccount( Email,  Password, Name, PhoneNumber);
+                else
+                    createAccount( Email,  Password, Name, PhoneNumber);
             }
         });
 
