@@ -17,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -43,8 +44,8 @@ public class RegistrationActivity2 extends AppCompatActivity implements AdapterV
     ////////////////////////////////////
     ///*/    I N P U T    V A R I A B L E S
     /**/    private Spinner spinnerGender;
-    /**/
-    /**/
+    /**/    private EditText ageEditText, heightEditText, mdNameEditText, weightEditText;
+    /**/    private EditText annualDate, lastDate;
     /**/
 
     /////////////////////////////////////////////////////////
@@ -57,37 +58,37 @@ public class RegistrationActivity2 extends AppCompatActivity implements AdapterV
     /**/    String gender;
             Date annualCheckupDate, lastAppointmentDate;
 
-    /////////////////////////////////////////////////////////
-    ////////////////////////////////////
-    ///*/   L A Y O U T    V A R I A B L E S
-    /**/
-    /**/    EditText ageEditText, heightEditText, mdNameEditText, weightEditText;
-    /**/    EditText annualDate, lastDate;
 
     private String TAG;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registration);
         changeStatusBarColor();
 
-        spinnerGender =  findViewById(R.id.spinnerGender);
+        // Initialize the Activity XML layout
+        setContentView(R.layout.activity_registration2);
+
+        // Initialize the instance of Firebase
+        // in order to validate if a user can access database
+        mAuth = FirebaseAuth.getInstance();
+
+        // Initialize the input variables with findViewById()
         ageEditText = findViewById(R.id.age);
+        spinnerGender = findViewById(R.id.spinnerGender);
         heightEditText = findViewById(R.id.height);
         mdNameEditText = findViewById(R.id.mdName);
         annualDate = findViewById(R.id.annualCheckupDate);
         lastDate = findViewById(R.id.lastAppointmentDate);
         weightEditText = findViewById(R.id.weight);
 
-        ArrayAdapter<CharSequence> adapterGender = ArrayAdapter.createFromResource(this,
-                R.array.gender_array, android.R.layout.simple_spinner_dropdown_item);
-        adapterGender.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerGender.setAdapter(adapterGender);
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.gender_array, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spinnerGender.setAdapter(adapter);
         spinnerGender.setOnItemSelectedListener(this);
-
-
-
 
 
 
@@ -136,6 +137,9 @@ public class RegistrationActivity2 extends AppCompatActivity implements AdapterV
                     @Override
                     public void onSuccess(Void aVoid) {
                         Log.d(TAG, "DocumentSnapshot successfully written!");
+
+                        // After successful upload to database the user has been registered
+                        // and can now navigate to the Home page
                         startActivity(new Intent(RegistrationActivity2.this, MainActivity.class));
 
                     }
@@ -146,7 +150,6 @@ public class RegistrationActivity2 extends AppCompatActivity implements AdapterV
                         Log.w(TAG, "Error writing document", e);
                     }
                 });
-        startActivity(new Intent(getApplicationContext(),MainActivity.class));
 
     }
 
