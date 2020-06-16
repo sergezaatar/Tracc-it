@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lastRegistration"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context = "com.example.tracc_it.RegistrationActivity2"
+    android:layout_gravity="center"
     android:background="@color/register_bk_color"
     android:focusableInTouchMode="true"
     android:gravity="center"
-    android:layout_gravity="center">
+    tools:context="com.example.tracc_it.RegistrationActivity2">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -57,7 +57,7 @@
                     android:orientation="vertical">
 
                     <EditText
-                        android:id="@+id/editAge"
+                        android:id="@+id/age"
                         style="@style/modifiedEditText"
                         android:hint="Age"
                         android:inputType="number"
@@ -72,8 +72,11 @@
 
                     <Spinner
                         android:id="@+id/spinnerGender"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_width="match_parent" />
+                        android:foregroundTint="@color/colorPrimary"
+                        android:visibility="visible"
+                        tools:visibility="visible" />
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputEmail"
@@ -83,7 +86,7 @@
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <EditText
-                        android:id="@+id/editTextMobile"
+                        android:id="@+id/weight"
                         style="@style/modifiedEditText"
                         android:hint="Weight"
                         android:inputType="numberDecimal"
@@ -97,14 +100,14 @@
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <EditText
-                        android:id="@+id/editTextPassword"
+                        android:id="@+id/height"
                         style="@style/modifiedEditText"
                         android:hint="Height"
                         android:inputType="number|numberDecimal"
                         android:maxLines="1" />
 
                     <EditText
-                        android:id="@+id/editTextDoctorName"
+                        android:id="@+id/mdName"
                         style="@style/modifiedEditText"
                         android:hint="Doctors Name"
                         android:maxLines="1" />
@@ -117,20 +120,21 @@
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <EditText
-                        android:id="@+id/editTextDate"
+                        android:id="@+id/lastAppointmentDate"
                         style="@style/modifiedEditText"
                         android:hint="Last Appointment Date"
                         android:inputType="date"
                         android:maxLines="1" />
+
                     <EditText
-                        android:id="@+id/editTextDate1"
+                        android:id="@+id/annualCheckupDate"
                         style="@style/modifiedEditText"
                         android:hint="Annual Checkup Date"
                         android:inputType="date"
                         android:maxLines="1" />
 
                     <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
-                        android:id="@+id/cirRegisterButton1"
+                        android:id="@+id/registerButton"
                         style="@style/loginButton"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="@dimen/loginViewsMargin"
@@ -170,19 +174,11 @@
     </ScrollView>
 
     <View
-        android:layout_marginTop="20dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
         android:layout_width="11dp"
         android:layout_height="match_parent"
-        android:background="@drawable/ic_side_bg"/>
-    <ImageView
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_back_img"
-        android:layout_marginRight="11dp"
-        android:layout_marginBottom="30dp"
-        android:adjustViewBounds="false"/>
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_side_bg" />
+
 </RelativeLayout>

@@ -1,5 +1,6 @@
 package com.example.tracc_it;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build;
 
@@ -14,6 +15,7 @@ import android.view.WindowManager;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -23,6 +25,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
 
+import java.text.DecimalFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -46,11 +50,19 @@ public class RegistrationActivity2 extends AppCompatActivity implements AdapterV
     /////////////////////////////////////////////////////////
     ////////////////////////////////////
     ///*/    U S E R    I N F O R M A T I O N
-    /**/    private int age;
-    /**/    private int[] height;
-    /**/    private int weight;
-    /**/    private String mdName;
-    /**/    private String gender;
+    /**/    Number age;
+    /**/    int[] height;
+    /**/    DecimalFormat weight;
+    /**/    String mdName;
+    /**/    String gender;
+            Date annualCheckupDate, lastAppointmentDate;
+
+    /////////////////////////////////////////////////////////
+    ////////////////////////////////////
+    ///*/   L A Y O U T    V A R I A B L E S
+    /**/
+    /**/    EditText ageEditText;
+    /**/
 
     private String TAG;
 
@@ -61,6 +73,8 @@ public class RegistrationActivity2 extends AppCompatActivity implements AdapterV
         changeStatusBarColor();
 
         spinnerGender =  findViewById(R.id.spinnerGender);
+        //height = findViewById(R.id.height);
+        ageEditText = findViewById(R.id.age);
 
 
         ArrayAdapter<CharSequence> adapterGender = ArrayAdapter.createFromResource(this,
@@ -68,6 +82,11 @@ public class RegistrationActivity2 extends AppCompatActivity implements AdapterV
         adapterGender.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerGender.setAdapter(adapterGender);
         spinnerGender.setOnItemSelectedListener(this);
+
+
+
+
+
 
     }
     private void changeStatusBarColor() {
@@ -105,8 +124,8 @@ public class RegistrationActivity2 extends AppCompatActivity implements AdapterV
         userInfo.put("height", height);
         userInfo.put("weight", weight);
         userInfo.put("pcp", mdName);
-        //userInfo.put("checkup", );
-        //userInfo.put("lastAppt", )
+        userInfo.put("checkup", annualCheckupDate);
+        userInfo.put("lastAppt",lastAppointmentDate );
 
         database.collection("users").document(mAuth.getCurrentUser().getEmail())
                 .set(userInfo, SetOptions.merge())
@@ -114,6 +133,8 @@ public class RegistrationActivity2 extends AppCompatActivity implements AdapterV
                     @Override
                     public void onSuccess(Void aVoid) {
                         Log.d(TAG, "DocumentSnapshot successfully written!");
+                        startActivity(new Intent(RegistrationActivity2.this, MainActivity.class));
+
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -122,6 +143,8 @@ public class RegistrationActivity2 extends AppCompatActivity implements AdapterV
                         Log.w(TAG, "Error writing document", e);
                     }
                 });
+        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+
     }
 
 
