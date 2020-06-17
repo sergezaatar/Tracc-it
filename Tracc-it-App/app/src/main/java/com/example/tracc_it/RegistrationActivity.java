@@ -30,7 +30,6 @@ import com.google.firebase.inappmessaging.model.Text;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.example.tracc_it.R.id.registerButton;
 
 
 public class RegistrationActivity extends AppCompatActivity {
@@ -102,7 +101,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if ( !task.isSuccessful() )
-                            Toast.makeText(RegistrationActivity.this, "Sign up failed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegistrationActivity.this, "Sign Up Unsuccessful", Toast.LENGTH_SHORT).show();
 
                         else
                         {
@@ -119,13 +118,18 @@ public class RegistrationActivity extends AppCompatActivity {
                                 // Add the phone to Firestore
                                 database = FirebaseFirestore.getInstance();
                                 Map<String, String> userInfo = new HashMap<>();
-                                userInfo.put("phone",phone);
+                                userInfo.put("Phone",phone);
+                                userInfo.put("Name", name);
+                                userInfo.put("Email", email);
+                                userInfo.put("Password", password);
                                 database.collection("users").document(mAuth.getCurrentUser().getEmail())
                                         .set(userInfo)
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
                                             public void onSuccess(Void aVoid) {
                                                 Log.d(TAG, "DocumentSnapshot successfully written!");
+                                                Toast.makeText(RegistrationActivity.this, "Here", Toast.LENGTH_SHORT).show();
+
                                                 startActivity(new Intent(RegistrationActivity.this, RegistrationActivity2.class));
                                             }
                                         })
@@ -136,9 +140,10 @@ public class RegistrationActivity extends AppCompatActivity {
                                             }
                                         });
 
-                                //startActivity(new Intent(getApplicationContext(),RegistrationActivity2.class));
                             }
                         }
+                        startActivity(new Intent(RegistrationActivity.this, RegistrationActivity2.class));
+
                     }
                 });
     }
