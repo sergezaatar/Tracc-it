@@ -19,7 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements ForgotPasswordDialog.ForgotPasswordDialogListener {
 
     /////////////////////////////////////////////////////////
     ////////////////////////////////////
@@ -68,5 +68,10 @@ public class LoginActivity extends AppCompatActivity {
                         // ...
                     }
                 });
+    }
+
+    @Override
+    public String getEmail() {
+        return "return the email here";
     }
 }
