@@ -31,7 +31,6 @@ import com.google.firebase.inappmessaging.model.Text;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.example.tracc_it.R.id.registerButton;
 
 
 public class RegistrationActivity extends AppCompatActivity {
@@ -112,7 +111,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if ( !task.isSuccessful() )
-                            Toast.makeText(RegistrationActivity.this, "Sign up failed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegistrationActivity.this, "Sign Up Unsuccessful", Toast.LENGTH_SHORT).show();
 
                         else
                         {
@@ -136,7 +135,6 @@ public class RegistrationActivity extends AppCompatActivity {
                                             @Override
                                             public void onSuccess(Void aVoid) {
                                                 Log.d(TAG, "DocumentSnapshot successfully written!");
-                                                startActivity(new Intent(RegistrationActivity.this, RegistrationActivity2.class));
                                             }
                                         })
                                         .addOnFailureListener(new OnFailureListener() {
@@ -145,8 +143,11 @@ public class RegistrationActivity extends AppCompatActivity {
                                                 Log.w(TAG, "Error writing document", e);
                                             }
                                         });
+
                             }
                         }
+                        startActivity(new Intent(RegistrationActivity.this, RegistrationActivity2.class));
+
                     }
                 });
     }
