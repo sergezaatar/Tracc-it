@@ -15,6 +15,7 @@ import android.view.WindowManager;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
@@ -43,20 +44,19 @@ public class RegistrationActivity2 extends AppCompatActivity implements AdapterV
     /////////////////////////////////////////////////////////
     ////////////////////////////////////
     ///*/    I N P U T    V A R I A B L E S
-    /**/    private Spinner spinnerGender;
-    /**/    private EditText ageEditText;
-    /**/
-    /**/
+    /**/    private Spinner spinnerGender, heightFtEditText, heightInEditText;
+    /**/    private EditText ageEditText, mdNameEditText, weightEditText;
+    /**/    private EditText annualDate, lastDate;
 
     /////////////////////////////////////////////////////////
     ////////////////////////////////////
     ///*/    U S E R    I N F O R M A T I O N
     /**/    Number age;
-    /**/    int[] height;
     /**/    DecimalFormat weight;
     /**/    String mdName;
-    /**/    String gender;
+    /**/    String gender, height;
             Date annualCheckupDate, lastAppointmentDate;
+            Button registerButton2;
 
 
     private String TAG;
@@ -76,6 +76,13 @@ public class RegistrationActivity2 extends AppCompatActivity implements AdapterV
         // Initialize the input variables with findViewById()
         ageEditText = findViewById(R.id.age);
         spinnerGender = findViewById(R.id.spinnerGender);
+        heightFtEditText = findViewById(R.id.heightFeet);
+        heightInEditText = findViewById(R.id.heightInches);
+        mdNameEditText = findViewById(R.id.mdName);
+        annualDate = findViewById(R.id.annualCheckupDate);
+        lastDate = findViewById(R.id.lastAppointmentDate);
+        weightEditText = findViewById(R.id.weight);
+        registerButton2 = findViewById(R.id.registerButton2);
 
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.gender_array, android.R.layout.simple_spinner_item);
@@ -86,6 +93,29 @@ public class RegistrationActivity2 extends AppCompatActivity implements AdapterV
         spinnerGender.setOnItemSelectedListener(this);
 
 
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapterFeet = ArrayAdapter.createFromResource(this, R.array.feet_array, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapterFeet.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        heightFtEditText.setAdapter(adapterFeet);
+        heightFtEditText.setOnItemSelectedListener(this);
+
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapterInches = ArrayAdapter.createFromResource(this, R.array.inches_array, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapterInches.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        heightInEditText.setAdapter(adapterInches);
+        heightInEditText.setOnItemSelectedListener(this);
+
+        registerButton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                uploadToDatabase();
+
+            }
+        });
 
     }
     private void changeStatusBarColor() {
@@ -100,18 +130,16 @@ public class RegistrationActivity2 extends AppCompatActivity implements AdapterV
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         gender = adapterView.getItemAtPosition(i).toString();
+        height = adapterView.getItemAtPosition(i).toString()+'.'+ adapterView.getItemAtPosition(i).toString();
+
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
         gender = adapterView.getItemAtPosition(0).toString();
-    }
+        height = adapterView.getItemAtPosition(0).toString()+'.'+ adapterView.getItemAtPosition(0).toString();
 
-//    public void onLoginClick(View view){
-//        startActivity(new Intent(this,LoginActivity.class));
-//        overridePendingTransition(R.anim.slide_in_left,android.R.anim.slide_out_right);
-//
-//    }
+    }
 
     private void uploadToDatabase()
     {
@@ -145,6 +173,8 @@ public class RegistrationActivity2 extends AppCompatActivity implements AdapterV
                         Log.w(TAG, "Error writing document", e);
                     }
                 });
+        startActivity(new Intent(RegistrationActivity2.this, MainActivity.class));
+
 
     }
 
