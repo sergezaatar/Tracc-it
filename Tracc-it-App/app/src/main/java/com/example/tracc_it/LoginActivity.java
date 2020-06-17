@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -27,6 +28,9 @@ public class LoginActivity extends AppCompatActivity {
     /**/    private FirebaseAuth mAuth;
     private String TAG;
 
+    int attempts = 0;
+    Button LoginButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,9 +40,24 @@ public class LoginActivity extends AppCompatActivity {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         }
         setContentView(R.layout.activity_login);
+
+        LoginButton.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                if (attempts > 3){
+                    Toast.makeText(getApplicationContext(), "Login limits exceeded please reset password", Toast.LENGTH_LONG).show();
+                    //work on this
+                }
+                else{
+                    String email = Email.getText().toString().trim();
+                    String password = Password.getText().toString().trim();
+                }
+            }
+        });
     }
 
-    public void onLoginClick(View View){
+    public void goToRegistration(View View) {
         startActivity(new Intent(this,RegistrationActivity.class));
         //overridePendingTransition(R.anim.slide_in_right,R.anim.stay);
 
@@ -63,6 +82,7 @@ public class LoginActivity extends AppCompatActivity {
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
                             Toast.makeText(LoginActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
+                            attempts++;
                         }
 
                         // ...

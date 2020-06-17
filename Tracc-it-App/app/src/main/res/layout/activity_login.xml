@@ -73,7 +73,7 @@
                 android:layout_marginTop="10dp"/>
 
             <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
-                android:id="@+id/cirLoginButton"
+                android:id="@+id/LoginButton"
                 style="@style/loginButton"
                 app:spinning_bar_width="4dp"
                 app:spinning_bar_color="#FFF"
@@ -91,7 +91,7 @@
                 android:textSize="17sp"
                 android:text="New user? Register Now"
                 android:layout_marginTop="@dimen/loginViewsMargin"
-                android:onClick="onLoginClick"/>
+                android:onClick="goToRegistration"/>
 
 
             <LinearLayout
