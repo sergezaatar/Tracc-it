@@ -12,6 +12,7 @@ import android.view.View;
         import android.view.Window;
         import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Button;
 
@@ -40,6 +41,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
     EditText name, email, phoneNumber, password;
     Button registerButton;
+    TextView prompt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +54,14 @@ public class RegistrationActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         phoneNumber = findViewById(R.id.phoneNumber);
         registerButton = findViewById(R.id.registerButton);
+        prompt = findViewById(R.id.login_prompt);
+
+        prompt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(RegistrationActivity.this, LoginActivity.class));
+            }
+        });
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,8 +145,6 @@ public class RegistrationActivity extends AppCompatActivity {
                                                 Log.w(TAG, "Error writing document", e);
                                             }
                                         });
-
-                                //startActivity(new Intent(getApplicationContext(),RegistrationActivity2.class));
                             }
                         }
                     }
