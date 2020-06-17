@@ -63,13 +63,6 @@
                         android:inputType="number"
                         android:maxLines="1" />
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/textInputName"
-                        style="@style/parent"
-                        android:layout_marginTop="@dimen/loginViewsMargin">
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
                     <Spinner
                         android:id="@+id/spinnerGender"
                         android:layout_width="match_parent"
@@ -78,33 +71,35 @@
                         android:visibility="visible"
                         tools:visibility="visible" />
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/textInputEmail"
-                        style="@style/parent"
-                        android:layout_marginTop="@dimen/loginViewsMargin">
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
                     <EditText
                         android:id="@+id/weight"
                         style="@style/modifiedEditText"
-                        android:hint="Weight"
+                        android:hint="Weight in lbs"
                         android:inputType="numberDecimal"
                         android:maxLines="1" />
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/textInputMobile"
-                        style="@style/parent"
-                        android:layout_marginTop="@dimen/loginViewsMargin">
 
-                    </com.google.android.material.textfield.TextInputLayout>
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Height (down below)" />
 
-                    <EditText
-                        android:id="@+id/height"
-                        style="@style/modifiedEditText"
-                        android:hint="Height"
-                        android:inputType="number|numberDecimal"
-                        android:maxLines="1" />
+                    <Spinner
+                        android:id="@+id/heightFeet"
+                        android:layout_width="205dp"
+                        android:layout_height="wrap_content"
+                        android:foregroundTint="@color/colorPrimary"
+                        android:visibility="visible"
+                        tools:visibility="visible" />
+
+                    <Spinner
+                        android:id="@+id/heightInches"
+                        android:layout_width="205dp"
+                        android:layout_height="wrap_content"
+                        android:foregroundTint="@color/colorPrimary"
+                        android:visibility="visible"
+                        tools:visibility="visible" />
 
                     <EditText
                         android:id="@+id/mdName"
@@ -133,16 +128,13 @@
                         android:inputType="date"
                         android:maxLines="1" />
 
-                    <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
-                        android:id="@+id/registerButton"
-                        style="@style/loginButton"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="@dimen/loginViewsMargin"
-                        android:text="Finish Registering"
-                        app:initialCornerAngle="27dp"
-                        app:spinning_bar_color="#FFF"
-                        app:spinning_bar_padding="6dp"
-                        app:spinning_bar_width="4dp" />
+                    <Button
+                        android:id="@+id/registerButton2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/themeColor"
+                        android:text="Register" />
+
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>

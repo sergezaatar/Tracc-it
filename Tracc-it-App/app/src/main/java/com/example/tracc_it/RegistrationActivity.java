@@ -12,6 +12,7 @@ import android.view.View;
         import android.view.Window;
         import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Button;
 
@@ -30,7 +31,6 @@ import com.google.firebase.inappmessaging.model.Text;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.example.tracc_it.R.id.registerButton;
 
 
 public class RegistrationActivity extends AppCompatActivity {
@@ -40,6 +40,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
     EditText name, email, phoneNumber, password;
     Button registerButton;
+    TextView prompt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +53,14 @@ public class RegistrationActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         phoneNumber = findViewById(R.id.phoneNumber);
         registerButton = findViewById(R.id.registerButton);
+        prompt = findViewById(R.id.login_prompt);
+
+        prompt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(RegistrationActivity.this, LoginActivity.class));
+            }
+        });
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,7 +111,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if ( !task.isSuccessful() )
-                            Toast.makeText(RegistrationActivity.this, "Sign up failed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegistrationActivity.this, "Sign Up Unsuccessful", Toast.LENGTH_SHORT).show();
 
                         else
                         {
@@ -126,7 +135,6 @@ public class RegistrationActivity extends AppCompatActivity {
                                             @Override
                                             public void onSuccess(Void aVoid) {
                                                 Log.d(TAG, "DocumentSnapshot successfully written!");
-                                                startActivity(new Intent(RegistrationActivity.this, RegistrationActivity2.class));
                                             }
                                         })
                                         .addOnFailureListener(new OnFailureListener() {
@@ -136,9 +144,10 @@ public class RegistrationActivity extends AppCompatActivity {
                                             }
                                         });
 
-                                //startActivity(new Intent(getApplicationContext(),RegistrationActivity2.class));
                             }
                         }
+                        startActivity(new Intent(RegistrationActivity.this, RegistrationActivity2.class));
+
                     }
                 });
     }
