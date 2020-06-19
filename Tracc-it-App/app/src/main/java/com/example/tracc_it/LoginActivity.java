@@ -77,6 +77,7 @@ public class LoginActivity extends AppCompatActivity implements ForgotPasswordDi
             @Override
             public void onClick(View view) {
                 openDialog();
+                //startActivity(new Intent(RegistrationActivity.this, LoginActivity.class));
             }
         });
 
@@ -85,12 +86,12 @@ public class LoginActivity extends AppCompatActivity implements ForgotPasswordDi
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (attempts > 3) {
+                if ((!email.getText().toString().isEmpty()) && (!password.getText().toString().isEmpty()) && attempts > 3) {
                     Toast.makeText(getApplicationContext(), "Login limits exceeded please reset password", Toast.LENGTH_LONG).show();
                     //work on this
-
-
-                } else {
+                    openDialog();
+                }
+                else {
                     if (email.getText().toString().isEmpty()) {
                         email.requestFocus();
                         email.setError("Email required");
@@ -148,6 +149,7 @@ public class LoginActivity extends AppCompatActivity implements ForgotPasswordDi
     //*/
     @Override
     public String getEmail() {
+
         return email.getText().toString();
     }
 }
