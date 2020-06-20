@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/coordinatorLayout"
@@ -7,57 +7,67 @@
     android:layout_height="match_parent"
     tools:context=".DietActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay"/>
-
-    <include
-        android:id="@+id/include"
-        layout="@layout/content_main"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
-
     <Button
         android:id="@+id/Diet_Submit_Button"
         android:layout_width="173dp"
         android:layout_height="46dp"
-        android:layout_marginBottom="76dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="126dp"
+        android:layout_marginBottom="99dp"
         android:text="Submit"
         app:layout_constraintBottom_toBottomOf="@+id/include"
         tools:layout_editor_absoluteX="113dp" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName2"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/Submit_A_Meal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Submit a meal:"
-        tools:layout_editor_absoluteX="101dp"
-        tools:layout_editor_absoluteY="175dp" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="251dp"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+        android:text="Submit A Meal:"
+        android:textSize="40sp" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName3"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/Calories"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Amount of Calories:"
-        tools:layout_editor_absoluteX="101dp"
-        tools:layout_editor_absoluteY="248dp" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-7dp"
+        android:layout_marginBottom="366dp"
+        android:gravity="center_horizontal"
+        android:text="Number of Calories:"
+        android:textAlignment="center"
+        android:textSize="40sp" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName4"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/Notes"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-4dp"
+        android:layout_marginTop="446dp"
+        android:layout_marginBottom="231dp"
+        android:gravity="center_horizontal"
         android:text="Notes(Optional):"
-        tools:layout_editor_absoluteX="101dp"
-        tools:layout_editor_absoluteY="334dp" />
+        android:textAlignment="center"
+        android:textSize="40sp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+    android:id="@+id/Diet_Title"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentEnd="true"
+    android:layout_marginEnd="201dp"
+    android:text="Daily Diet"
+    android:textSize="50dp" />
+
+
+</RelativeLayout>
