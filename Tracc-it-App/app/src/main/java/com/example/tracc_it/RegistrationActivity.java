@@ -135,6 +135,8 @@ public class RegistrationActivity extends AppCompatActivity {
                                             @Override
                                             public void onSuccess(Void aVoid) {
                                                 Log.d(TAG, "DocumentSnapshot successfully written!");
+
+                                                startActivity(new Intent(RegistrationActivity.this, RegistrationActivity2.class));
                                             }
                                         })
                                         .addOnFailureListener(new OnFailureListener() {
@@ -143,10 +145,8 @@ public class RegistrationActivity extends AppCompatActivity {
                                                 Log.w(TAG, "Error writing document", e);
                                             }
                                         });
-
                             }
                         }
-                        startActivity(new Intent(RegistrationActivity.this, RegistrationActivity2.class));
 
                     }
                 });

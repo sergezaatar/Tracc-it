@@ -173,7 +173,6 @@ public class RegistrationActivity2 extends AppCompatActivity implements AdapterV
                         Log.w(TAG, "Error writing document", e);
                     }
                 });
-        startActivity(new Intent(RegistrationActivity2.this, MainActivity.class));
 
 
     }
