@@ -149,7 +149,11 @@ public class LoginActivity extends AppCompatActivity implements ForgotPasswordDi
     //*/
     @Override
     public String getEmail() {
-
         return email.getText().toString();
+    }
+
+    @Override
+    public void displayError(String err) {
+        Toast.makeText(this, err, Toast.LENGTH_LONG).show();
     }
 }
