@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 import android.view.View;
-public class DietActivity extends AppCompatActivity {
+public class DietActivity extends AppCompatActivity implements Diet_Dialog.DietDialogListener {
     private TextView submitMeal;
     private TextView numOfCal;
     private TextView optionalNotes;
@@ -33,4 +33,11 @@ public class DietActivity extends AppCompatActivity {
         Diet_Dialog dietDialog = new Diet_Dialog();
         dietDialog.show(getSupportFragmentManager(), "Diet_Dialog");
    }
+
+    @Override
+    public void applyTexts(String TextMeal, String TextCal, String TextNotes) {
+        submitMeal.setText(TextMeal);
+        numOfCal.setText((TextCal));
+        optionalNotes.setText(TextNotes);
+    }
 }
