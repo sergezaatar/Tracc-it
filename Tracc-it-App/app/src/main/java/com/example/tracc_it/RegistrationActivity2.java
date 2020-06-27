@@ -49,7 +49,7 @@ public class RegistrationActivity2 extends AppCompatActivity implements AdapterV
     /**/    private EditText annualDate, lastDate;
 
     /////////////////////////////////////////////////////////
-    ////////////////////////////////////
+    //    ////////////////////////////////////
     ///*/    U S E R    I N F O R M A T I O N
     /**/    Number age;
     /**/    DecimalFormat weight;
