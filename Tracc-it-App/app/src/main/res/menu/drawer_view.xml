@@ -1,0 +1,32 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_profile_fragment"
+            android:checked="true"
+            android:title="Profile" />
+        <item
+            android:id="@+id/nav_vitals_fragment"
+            android:title="Vitals" />
+        <item
+            android:id="@+id/nav_meds_fragment"
+            android:title="Medication" />
+        <item
+            android:id="@+id/nav_diet_fragment"
+            android:title="Diet" />
+        <item
+            android:id="@+id/nav_notes_fragment"
+            android:title="Notes" />
+    </group>
+
+    <item android:title="More options">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:title="Account Settings" />
+                <item
+                    android:title="Logout" />
+            </group>
+        </menu>
+    </item>
+</menu>

@@ -5,27 +5,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
 
-import java.text.DecimalFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,13 +29,13 @@ public class VitalsActivity extends AppCompatActivity {
     /////////////////////////////////////////////////////////
     ////////////////////////////////////
     ///*/    U S E R    I N F O R M A T I O N
-    /**/    Number sugarLevel, heartRate, diaBloodPressure,oxygenLevel, sysBloodPressure;
+    /**/    Number glucoseLevel, heartRate, diaBloodPressure,oxygenLevel, sysBloodPressure;
     /**/
 
     /////////////////////////////////////////////////////////
     ////////////////////////////////////
     ///*/    I N P U T    V A R I A B L E S
-    /**/     EditText textSugarLevel, textHeartRate, textOxygenLevel, textDiaBloodPressure, textSysBloodPressure;
+    /**/     EditText textGlucoseLevel, textHeartRate, textOxygenLevel, textDiaBloodPressure, textSysBloodPressure;
     /**/     Button vitalsButton;
 
     private String TAG;
@@ -53,8 +43,8 @@ public class VitalsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vitals);
-        textSugarLevel= findViewById(R.id.sugarLevel);
+        setContentView(R.layout.fragment_vitals);
+        textGlucoseLevel= findViewById(R.id.sugarLevel);
         textHeartRate = findViewById(R.id.heartRate);
         textOxygenLevel = findViewById(R.id.oxygenLevel);
         textDiaBloodPressure = findViewById(R.id.diaBloodPressure);
@@ -75,7 +65,7 @@ public class VitalsActivity extends AppCompatActivity {
         database = FirebaseFirestore.getInstance();
 
         Map<String, Object> vitals = new HashMap<>();
-        vitals.put("sugarlevel", sugarLevel);
+        vitals.put("glucoselevel", glucoseLevel);
         vitals.put("diabloodpressure", diaBloodPressure);
         vitals.put("sysbloodpressure", sysBloodPressure);
         vitals.put("oxygenlevel", oxygenLevel);
