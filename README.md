@@ -68,5 +68,5 @@ Verify that you have the contents of the repository by listing the directory
 5. Select **Run 'app'** denoted by the Green arrow (Shift+F10) <br /> <br />
 ![](Documentation/Readme_Images/run_app.JPG)
 
-6. For emulated devices the emulator will launch and the Auto-Learn Pro application will be installed <br /> <br />
+6. For emulated devices the emulator will launch and the Tracc-it application will be installed <br /> <br />
 ![](Documentation/Readme_Images/launched_app.JPG)
