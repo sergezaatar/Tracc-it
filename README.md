@@ -3,22 +3,21 @@ Tracc-it is a Personal Health Management System developed using Android Studio
 
 Collaborators to this repository include:
 
+**Jennifer Ulloa (https://github.com/jenniferulloa)**
+
+**Serge Zaatar (https://github.com/Latinz117)** 
+
 **Edrik Aguilera (https://github.com/driko-development)**
 
-**William Anderson (https://github.com/willpanderson)**
-
-**Ryan Laurents (https://github.com/laurentsR)** 
-
-**Jonathan Padilla-Vences (https://github.com/jonathanpv)**
+**Calvin Mata**
 
 GitHub was used to host our git repository, it contains the following items:
 
-* **AutoLearnApp** - Android studio project
+* **Tracc-it-App** - Android studio project
 * **Documentation** - Project Documentation
-* **Machine Learning** - Dataset and ML material
 * **README.md** - Project description and instructions
 
-# AutoLearnApp
+# Tracc-it-App
 ### Prerequisites
 * **Android Studio** must be installed ([Installation Instructions](https://developer.android.com/studio))
 * **Git** must be installed ([Installation Instructions](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git))
