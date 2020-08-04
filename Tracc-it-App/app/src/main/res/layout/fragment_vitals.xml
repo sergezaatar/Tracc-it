@@ -30,19 +30,21 @@ tools:context="com.example.tracc_it.VitalsActivity">
 
             <TextView
                 style="@style/viewParent.headerText.NoMode"
+                android:layout_width="153dp"
+                android:layout_height="130dp"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
-                android:text="Finish\nRegistering!"
+                android:text="Add\nYour Vitals\nHere!"
                 android:textColor="@color/whiteTextColor" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="188dp"
+                android:layout_height="163dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="37dp"
                 android:layout_marginRight="-2dp"
-                android:src="@drawable/ic_login_hero" />
+                android:src="@drawable/ic_baseline_favorite_border_24" />
         </RelativeLayout>
 
         <androidx.cardview.widget.CardView
@@ -98,7 +100,7 @@ tools:context="com.example.tracc_it.VitalsActivity">
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/themeColor"
-                    android:text="Finish Registering Vitals!" />
+                    android:text="Submit Your Vitals!" />
 
 
             </LinearLayout>
