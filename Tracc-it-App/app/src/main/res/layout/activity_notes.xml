@@ -9,13 +9,13 @@
     android:background="@color/register_bk_color"
     android:focusableInTouchMode="true"
     android:gravity="center"
-    tools:context="com.example.tracc_it.VitalsActivity">
+    tools:context="com.example.tracc_it.NotesActivity">
 
     <ScrollView
-        android:layout_width="383dp"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="-54dp">
+        android:layout_marginTop="4dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -35,78 +35,45 @@
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="0dp"
                     android:padding="15dp"
-                    android:text="Add Your Medications Here!"
+                    android:text="Your Notes!"
                     android:textColor="@color/whiteTextColor" />
 
                 <ImageView
-                    android:layout_width="61dp"
-                    android:layout_height="36dp"
+                    android:layout_width="78dp"
+                    android:layout_height="61dp"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentRight="true"
-                    android:layout_marginTop="25dp"
+                    android:layout_marginTop="0dp"
                     android:layout_marginRight="5dp"
-                    android:src="@drawable/ic_baseline_local_hospital_24" />
+                    android:src="@drawable/pencil" />
             </RelativeLayout>
 
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="681dp"
+                android:layout_height="547dp"
                 android:layout_marginTop="10dp"
                 app:cardBackgroundColor="@color/whiteTextColor"
                 app:cardCornerRadius="10dp">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="693dp"
+                    android:layout_width="331dp"
+                    android:layout_height="576dp"
                     android:layout_margin="10dp"
                     android:orientation="vertical">
 
-                    <EditText
-                        android:id="@+id/medName"
-                        style="@style/modifiedEditText"
-                        android:hint="Medication Name"
-                        android:inputType="text"
-                        android:maxLines="1" />
 
-                    <EditText
-                        android:id="@+id/medDose"
-                        style="@style/modifiedEditText"
-                        android:hint="Medication Dose in Mg"
-                        android:inputType="number"
-                        android:maxLines="1" />
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerview"
+                        android:layout_width="match_parent"
+                        android:layout_height="471dp" />
 
-                    <EditText
-                        android:id="@+id/medSignature"
-                        style="@style/modifiedEditText"
-                        android:hint="Medicine Signature"
-                        android:inputType="text"
-                        android:maxLines="1" />
-
-                    <TimePicker
-                        android:id="@+id/timePicker1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="410dp" />
-
-                    <CheckBox
-                        android:id="@+id/checkBoxMed"
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/floatingActionButton"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Would you like to set up a Notification for this medication?" />
-
-                    <Button
-                        android:id="@+id/medsButton"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:backgroundTint="@color/themeColor"
-                        android:text="Add your medication!" />
-
-                    <Button
-                        android:id="@+id/editButton"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Edit Previous Medications" />
-
+                        android:clickable="true"
+                        app:srcCompat="@drawable/ic_baseline_add_circle_24" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -131,6 +98,7 @@
                     android:background="@color/whiteTextColor" />
 
             </LinearLayout>
+
 
 
         </LinearLayout>

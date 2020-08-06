@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/register_bk_color"
+    tools:context=".ModifyMeds">
+
+    <TextView
+        android:id="@+id/lastRegistration"
+        style="@style/viewParent.headerText.NoMode"
+        android:layout_width="226dp"
+        android:layout_height="160dp"
+        android:layout_alignParentLeft="true"
+        android:layout_gravity="center"
+        android:padding="15dp"
+        android:text="Modify Your Medications Here!"
+        android:textColor="@color/whiteTextColor"
+        tools:layout_editor_absoluteX="-5dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <ImageView
+        android:layout_width="143dp"
+        android:layout_height="91dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="136dp"
+        android:src="@drawable/ic_baseline_local_hospital_24"
+        app:layout_constraintBottom_toTopOf="@+id/tabla_cuerpo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.985"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TableLayout
+        android:id="@+id/tabla_cuerpo"
+        android:layout_width="421dp"
+        android:layout_height="349dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="236dp"
+        android:background="#FAFAFA"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="-6dp">
+
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:gravity="center"
+                android:text="Modify Your Medications"
+                android:textColor="#0D7F8E"
+                android:textSize="18dp"
+                android:textStyle="bold"></TextView>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txtMedName"
+                android:layout_width="163dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Med. Name"
+                android:textColor="#0D7F8E"
+                android:textSize="16dp"></TextView>
+
+            <TextView
+                android:id="@+id/txtMedDosage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Med. Dosage"
+                android:textColor="#0D7F8E"
+                android:textSize="16dp"></TextView>
+
+            <TextView
+                android:id="@+id/txtMedSig"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Med. Signature"
+                android:textColor="#0D7F8E"
+                android:textSize="16dp"></TextView>
+
+            <TextView
+                android:id="@+id/txtMedDecide"
+                android:layout_width="76dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Edit/Delete"
+                android:textColor="#0D7F8E"
+                android:textSize="16dp"></TextView>
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/textMedName1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Ibuprofen"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#0D7F8E"></TextView>
+
+            <TextView
+                android:id="@+id/textMedDosage2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="50 mg"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#0D7F8E"></TextView>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Take 1 a day"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#0D7F8E"></TextView>
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="64dp"
+                android:layout_height="match_parent"
+                android:text="Edit" />
+
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="302dp">
+
+            <TextView
+                android:id="@+id/textMedName3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Ibuprofen"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#0D7F8E"></TextView>
+
+            <TextView
+                android:id="@+id/textMedDosage3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="50 mg"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#0D7F8E"></TextView>
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Take 1 a day"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#0D7F8E"></TextView>
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="64dp"
+                android:layout_height="match_parent"
+                android:text="Edit" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="302dp">
+
+            <TextView
+                android:id="@+id/textMedName5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Ibuprofen"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#0D7F8E"></TextView>
+
+            <TextView
+                android:id="@+id/textMedDosage5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="50 mg"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#0D7F8E"></TextView>
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Take 1 a day"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#0D7F8E"></TextView>
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="64dp"
+                android:layout_height="match_parent"
+                android:text="Edit" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow"
+            android:layout_width="match_parent"
+            android:layout_height="302dp">
+
+            <TextView
+                android:id="@+id/textMedName7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Ibuprofen"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#0D7F8E"></TextView>
+
+            <TextView
+                android:id="@+id/textMedDosage1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="50 mg"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#0D7F8E"></TextView>
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Take 1 a day"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#0D7F8E"></TextView>
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="64dp"
+                android:layout_height="match_parent"
+                android:text="Edit" />
+
+        </TableRow>
+    </TableLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

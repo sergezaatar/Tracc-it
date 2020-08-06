@@ -24,7 +24,7 @@ import com.google.firebase.inappmessaging.model.Text;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MedsActivity extends AppCompatActivity {
+public class ModifyMeds extends AppCompatActivity {
     /////////////////////////////////////////////////////////
     ////////////////////////////////////
     ///*/    F I R E    B A S E    V A R I A B L E S
@@ -42,7 +42,7 @@ public class MedsActivity extends AppCompatActivity {
     ////////////////////////////////////
     ///*/    I N P U T    V A R I A B L E S
     /**/     EditText textMedName, textMedDose, textMedSignature;
-    /**/     Button medButton, editButton;
+    /**/     Button medButton;
     /**/     TimePicker timePicker1;
 
     private String TAG;
@@ -59,16 +59,8 @@ public class MedsActivity extends AppCompatActivity {
         int hour = timePicker1.getHour();
         int min = timePicker1.getMinute();
         checkBoxMed=(CheckBox)findViewById(R.id.checkBoxMed);
-        editButton = findViewById(R.id.editButton);
-
-        editButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MedsActivity.this,ModifyMeds.class));
 
 
-            }
-        });
 
         medButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,7 +70,6 @@ public class MedsActivity extends AppCompatActivity {
 
             }
         });
-
 
     }
     public void onCheckboxClicked(View view) {
@@ -90,7 +81,7 @@ public class MedsActivity extends AppCompatActivity {
         switch(view.getId()) {
             case R.id.checkBoxMed:
                 if (checked)
-                // Put some meat on the sandwich
+                    // Put some meat on the sandwich
                     if(checkBoxMed.isChecked()) {
                         msg = "Replace this with calling notification system function";
                         Toast.makeText(this, msg + "are selected",
@@ -124,7 +115,7 @@ public class MedsActivity extends AppCompatActivity {
 
                         // After successful upload to database the user has been registered
                         // and can now navigate to the Home page
-                        startActivity(new Intent(MedsActivity.this, MainActivity.class));
+                        startActivity(new Intent(ModifyMeds.this, MainActivity.class));
 
                     }
                 })
