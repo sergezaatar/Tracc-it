@@ -18,7 +18,6 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
-import com.google.firebase.inappmessaging.model.Text;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -34,7 +33,7 @@ public class MedsActivity extends AppCompatActivity {
     ////////////////////////////////////
     ///*/    U S E R    I N F O R M A T I O N
     /**/    Number medDose, medTime;
-    /**/    Text medName, medSignature;
+    /**/    String medName, medSignature;
     /**/
 
     /////////////////////////////////////////////////////////

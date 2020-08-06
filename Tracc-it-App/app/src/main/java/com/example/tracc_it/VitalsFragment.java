@@ -19,6 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
 
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -31,12 +32,6 @@ public class VitalsFragment extends Fragment {
     ///*/    F I R E    B A S E    V A R I A B L E S
     /**/    private FirebaseAuth mAuth;
     /**/    private FirebaseFirestore database;
-
-    /////////////////////////////////////////////////////////
-    ////////////////////////////////////
-    ///*/    U S E R    I N F O R M A T I O N
-    /**/    Number glucoseLevel, heartRate, diaBloodPressure, oxygenLevel, sysBloodPressure;
-    /**/
 
     /////////////////////////////////////////////////////////
     ////////////////////////////////////
@@ -73,20 +68,30 @@ public class VitalsFragment extends Fragment {
 
     private void addVitals()
     {
+        // Set up firebase stuff
+        mAuth = FirebaseAuth.getInstance();
         database = FirebaseFirestore.getInstance();
 
         Map<String, Object> vitals = new HashMap<>();
-        vitals.put("glucoselevel", glucoseLevel);
-        vitals.put("diabloodpressure", diaBloodPressure);
-        vitals.put("sysbloodpressure", sysBloodPressure);
-        vitals.put("oxygenlevel", oxygenLevel);
-        vitals.put("heartrate", heartRate);
+        try {
+            vitals.put("glucoselevel", NumberFormat.getInstance().getInstance().parse(textGlucoseLevel.getText().toString().trim()));
+            vitals.put("diabloodpressure", NumberFormat.getInstance().getInstance().parse(textDiaBloodPressure.getText().toString().trim()));
+            vitals.put("sysbloodpressure", NumberFormat.getInstance().getInstance().parse(textSysBloodPressure.getText().toString().trim()));
+            vitals.put("oxygenlevel", NumberFormat.getInstance().getInstance().parse(textOxygenLevel.getText().toString().trim()));
+            vitals.put("heartrate", NumberFormat.getInstance().getInstance().parse(textHeartRate.getText().toString().trim()));
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+
 
         // Keep track of vitals per day
-        String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+        String date = new SimpleDateFormat("MM-dd-yyyy", Locale.getDefault()).format(new Date());
+        String time = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date());
 
         database.collection("vitals").document(mAuth.getCurrentUser().getEmail())
-                .collection(date).document("???")
+                .collection(date).document(time)
                 .set(vitals)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
