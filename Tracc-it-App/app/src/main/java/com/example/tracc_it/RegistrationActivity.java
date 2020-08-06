@@ -26,7 +26,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
-import com.google.firebase.inappmessaging.model.Text;
 
 import java.util.HashMap;
 import java.util.Map;
