@@ -50,7 +50,7 @@ public class MedsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_meds);
+        setContentView(R.layout.fragment_add_meds);
         textMedDose= findViewById(R.id.medDose);
         textMedName = findViewById(R.id.medName);
         textMedSignature = findViewById(R.id.medSignature);

@@ -8,12 +8,11 @@
     android:layout_gravity="center"
     android:background="@color/register_bk_color"
     android:focusableInTouchMode="true"
-    android:gravity="center"
-    tools:context="com.example.tracc_it.VitalsActivity">
+    android:gravity="center">
 
     <ScrollView
-        android:layout_width="383dp"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_marginTop="-54dp">
 
@@ -30,7 +29,7 @@
 
                 <TextView
                     style="@style/viewParent.headerText.NoMode"
-                    android:layout_width="333dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="0dp"
@@ -100,12 +99,6 @@
                         android:layout_height="50dp"
                         android:backgroundTint="@color/themeColor"
                         android:text="Add your medication!" />
-
-                    <Button
-                        android:id="@+id/editButton"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Edit Previous Medications" />
 
 
                 </LinearLayout>

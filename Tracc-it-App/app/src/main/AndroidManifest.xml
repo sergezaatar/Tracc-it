@@ -13,7 +13,6 @@
         <activity android:name=".AddNotesFragment" />
         <activity android:name=".ActualModMeds" />
         <activity android:name=".ModifyMeds" />
-        <activity android:name=".VitalsActivity" />
         <activity android:name=".RegistrationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +23,7 @@
         <activity android:name=".RegistrationActivity2" />
         <activity android:name=".MainActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".ProfileFragment" />
+        <activity android:name=".HomeFragment" />
     </application>
 
 </manifest>
