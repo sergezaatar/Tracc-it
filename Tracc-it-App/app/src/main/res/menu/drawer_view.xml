@@ -2,30 +2,74 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_profile_fragment"
+            android:id="@+id/nav_home_fragment"
             android:checked="true"
-            android:title="Profile" />
-        <item
-            android:id="@+id/nav_vitals_fragment"
-            android:title="Vitals" />
-        <item
-            android:id="@+id/nav_meds_fragment"
-            android:title="Medication" />
-        <item
-            android:id="@+id/nav_diet_fragment"
-            android:title="Diet" />
-        <item
-            android:id="@+id/nav_notes_fragment"
-            android:title="Notes" />
+            android:title="Home" />
     </group>
 
-    <item android:title="More options">
+    <item android:title="Doctors">
         <menu>
             <group android:checkableBehavior="single">
                 <item
-                    android:title="Account Settings" />
+                    android:id="@+id/nav_add_doctor_fragment"
+                    android:title="Add Doctor" />
                 <item
-                    android:title="Logout" />
+                    android:id="@+id/nav_mod_doctor_fragment"
+                    android:title="Modify Doctor" />
+                <item
+                    android:id="@+id/nav_rm_doctor_fragment"
+                    android:title="Remove Doctor" />
+            </group>
+        </menu>
+    </item>
+    <item android:title="Vitals">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_log_vitals_fragment"
+                    android:title="Log Vitals" />
+                <item
+                    android:id="@+id/nav_mod_vitals_fragment"
+                    android:title="Modify Vitals" />
+            </group>
+        </menu>
+    </item>
+    <item android:title="Medications">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_add_meds_fragment"
+                    android:title="Add Rx" />
+                <item
+                    android:id="@+id/nav_mod_meds_fragment"
+                    android:title="Modify Rx" />
+                <item
+                    android:id="@+id/nav_rm_meds_fragment"
+                    android:title="Remove Rx" />
+            </group>
+        </menu>
+    </item>
+    <item android:title="Diet">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_log_diet_fragment"
+                    android:title="Log Diet info" />
+                <item
+                    android:id="@+id/nav_mod_diet_fragment"
+                    android:title="Modify Diet info" />
+            </group>
+        </menu>
+    </item>
+    <item android:title="Notes">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_add_notes_fragment"
+                    android:title="Add a Note" />
+                <item
+                    android:id="@+id/nav_mod_notes_fragment"
+                    android:title="Modify a Note" />
             </group>
         </menu>
     </item>

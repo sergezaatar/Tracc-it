@@ -38,14 +38,6 @@
                     android:text="Add Your Medications Here!"
                     android:textColor="@color/whiteTextColor" />
 
-                <ImageView
-                    android:layout_width="61dp"
-                    android:layout_height="36dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginTop="46dp"
-                    android:layout_marginRight="-12dp"
-                    android:src="@drawable/ic_baseline_local_hospital_24" />
             </RelativeLayout>
 
 

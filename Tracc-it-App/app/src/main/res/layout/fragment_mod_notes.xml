@@ -6,10 +6,10 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Profile"
-        tools:layout_editor_absoluteX="174dp"
-        tools:layout_editor_absoluteY="160dp" />
+        android:text="Notes"
+        tools:layout_editor_absoluteX="199dp"
+        tools:layout_editor_absoluteY="154dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

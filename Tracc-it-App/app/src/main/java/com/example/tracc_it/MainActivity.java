@@ -3,17 +3,13 @@ package com.example.tracc_it;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -29,6 +25,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Set the home page fragment to be viewed first
+        Class fragmentClass = HomeFragment.class;
+        Fragment fragment = null;
+        try {
+            fragment = (Fragment) fragmentClass.newInstance();
+            // Insert the fragment by replacing any existing fragment
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         // Set a Toolbar to replace the ActionBar.
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -98,23 +106,59 @@ public class MainActivity extends AppCompatActivity {
         Fragment fragment = null;
         Class fragmentClass;
         switch(menuItem.getItemId()) {
-            case R.id.nav_profile_fragment:
-                fragmentClass = ProfileFragment.class;
+            // Home page view
+            case R.id.nav_home_fragment:
+                fragmentClass = HomeFragment.class;
                 break;
-            case R.id.nav_vitals_fragment:
+
+            // Vitals options
+            case R.id.nav_log_vitals_fragment:
                 fragmentClass = VitalsFragment.class;
                 break;
-            case R.id.nav_meds_fragment:
-                fragmentClass = MedsFragment.class;
+            case R.id.nav_mod_vitals_fragment:
+                fragmentClass = VitalsFragment2.class;
                 break;
-            case R.id.nav_diet_fragment:
+
+            // Diet options
+            case R.id.nav_log_diet_fragment:
                 fragmentClass = DietFragment.class;
                 break;
-            case R.id.nav_notes_fragment:
+            case R.id.nav_mod_diet_fragment:
+                fragmentClass = DietFragment2.class;
+                break;
+
+            // Notes options
+            case R.id.nav_add_notes_fragment:
                 fragmentClass = NotesFragment.class;
                 break;
+            case R.id.nav_mod_notes_fragment:
+                fragmentClass = NotesFragment2.class;
+                break;
+
+            // Doctor options
+            case R.id.nav_add_doctor_fragment:
+                fragmentClass = DocFragment.class;
+                break;
+            case R.id.nav_mod_doctor_fragment:
+                fragmentClass = DocFragment2.class;
+                break;
+            case R.id.nav_rm_doctor_fragment:
+                fragmentClass = DocFragment3.class;
+                break;
+
+            // Medication options
+            case R.id.nav_add_meds_fragment:
+                fragmentClass = MedsFragment.class;
+                break;
+            case R.id.nav_mod_meds_fragment:
+                fragmentClass = MedsFragment2.class;
+                break;
+            case R.id.nav_rm_meds_fragment:
+                fragmentClass = MedsFragment3.class;
+                break;
+
             default:
-                fragmentClass = ProfileFragment.class;
+                fragmentClass = HomeFragment.class;
         }
 
         try {
