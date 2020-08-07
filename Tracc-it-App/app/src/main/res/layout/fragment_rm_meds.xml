@@ -9,13 +9,13 @@
     android:background="@color/register_bk_color"
     android:focusableInTouchMode="true"
     android:gravity="center"
-    tools:context="com.example.tracc_it.VitalsActivity">
+    tools:context="com.example.tracc_it.MedsFragment3">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="-54dp">
+        android:layout_marginTop="4dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,62 +30,61 @@
 
                 <TextView
                     style="@style/viewParent.headerText.NoMode"
-                    android:layout_width="match_parent"
+                    android:layout_width="333dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="0dp"
                     android:padding="15dp"
-                    android:text="Add Your Medications Here!"
+                    android:text="Remove A Medication"
                     android:textColor="@color/whiteTextColor" />
 
+                <ImageView
+                    android:layout_width="61dp"
+                    android:layout_height="36dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/ic_baseline_local_hospital_24" />
             </RelativeLayout>
 
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="599dp"
+                android:layout_height="475dp"
                 android:layout_marginTop="10dp"
                 app:cardBackgroundColor="@color/whiteTextColor"
                 app:cardCornerRadius="10dp">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="693dp"
+                    android:layout_width="356dp"
+                    android:layout_height="443dp"
                     android:layout_margin="10dp"
                     android:orientation="vertical">
 
-                    <EditText
-                        android:id="@+id/medName"
-                        style="@style/modifiedEditText"
-                        android:hint="Medication Name"
-                        android:inputType="text"
-                        android:maxLines="1" />
 
-                    <EditText
-                        android:id="@+id/medDose"
-                        style="@style/modifiedEditText"
-                        android:hint="Medication Dose in Mg"
-                        android:inputType="number"
-                        android:maxLines="1" />
+                    <Spinner
+                        android:id="@+id/MedName"
+                        android:layout_width="match_parent"
+                        android:layout_height="57dp" />
 
-                    <EditText
-                        android:id="@+id/medSignature"
-                        style="@style/modifiedEditText"
-                        android:hint="Medicine Signature"
-                        android:inputType="text"
-                        android:maxLines="1" />
-
-                    <TimePicker
-                        android:id="@+id/timePicker1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="410dp" />
+                    <TextView
+                        style="@style/viewParent.headerText.NoMode"
+                        android:layout_width="352dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="0dp"
+                        android:padding="15dp"
+                        android:text="Are You Sure You Want To Remove The Medication Selected"
+                        android:textAlignment="center"
+                        android:textColor="@color/black" />
 
                     <Button
-                        android:id="@+id/medsButton"
+                        android:id="@+id/removemedsButton"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:backgroundTint="@color/themeColor"
-                        android:text="Add your medication!" />
+                        android:text="Remove this medication now" />
 
 
                 </LinearLayout>

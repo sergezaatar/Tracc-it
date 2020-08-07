@@ -9,7 +9,7 @@
     android:background="@color/register_bk_color"
     android:focusableInTouchMode="true"
     android:gravity="center"
-    tools:context="com.example.tracc_it.VitalsActivity">
+    tools:context="com.example.tracc_it.MedsFragment">
 
     <ScrollView
         android:layout_width="match_parent"
