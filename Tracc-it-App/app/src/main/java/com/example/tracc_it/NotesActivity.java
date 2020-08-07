@@ -60,7 +60,7 @@ public class NotesActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_notes);
+        setContentView(R.layout.fragment_add_notes);
 
         //for changing status bar icon colors
 

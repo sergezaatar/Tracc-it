@@ -67,7 +67,7 @@ public class AddNotesFragment extends Fragment {
         // LinearLayout content = (LinearLayout) rootView.findViewById(R.layout.fragment_notes);
         //content.addView(R.layout.fragment_notes);
 
-        View view = inflater.inflate(R.layout.fragment_notes, container, false);
+        View view = inflater.inflate(R.layout.fragment_add_notes, container, false);
 
         // Initialize all the input variables
         TextView notesName = (TextView) view.findViewById(R.id.notesName);

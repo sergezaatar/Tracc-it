@@ -42,7 +42,7 @@ public class MedsActivity extends AppCompatActivity {
     ////////////////////////////////////
     ///*/    I N P U T    V A R I A B L E S
     /**/     EditText textMedName, textMedDose, textMedSignature;
-    /**/     Button medButton, editButton;
+    /**/     Button medsButton;
     /**/     TimePicker timePicker1;
 
     private String TAG;
@@ -54,23 +54,15 @@ public class MedsActivity extends AppCompatActivity {
         textMedDose= findViewById(R.id.medDose);
         textMedName = findViewById(R.id.medName);
         textMedSignature = findViewById(R.id.medSignature);
-        medButton = findViewById(R.id.medsButton);
+        medsButton = findViewById(R.id.medsButton);
         timePicker1 = (TimePicker) findViewById(R.id.timePicker1);
         int hour = timePicker1.getHour();
         int min = timePicker1.getMinute();
         checkBoxMed=(CheckBox)findViewById(R.id.checkBoxMed);
-        editButton = findViewById(R.id.editButton);
-
-        editButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MedsActivity.this,ModifyMeds.class));
 
 
-            }
-        });
 
-        medButton.setOnClickListener(new View.OnClickListener() {
+        medsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Your medication has been added!", Toast.LENGTH_LONG).show();
