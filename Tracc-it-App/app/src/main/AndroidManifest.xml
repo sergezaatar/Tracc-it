@@ -12,7 +12,6 @@
         <activity android:name=".NotesActivity"></activity>
         <activity android:name=".AddNotesFragment" />
         <activity android:name=".ActualModMeds" />
-        <activity android:name=".ModifyMeds" />
         <activity android:name=".RegistrationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

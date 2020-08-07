@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
                 fragmentClass = NotesFragment.class;
                 break;
             case R.id.nav_mod_notes_fragment:
-                fragmentClass = NotesFragment2.class;
+                fragmentClass = NotesFragmentAdd.class;
                 break;
 
             // Doctor options
