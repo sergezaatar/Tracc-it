@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.tracc_it">
+    <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
 
     <application
         android:allowBackup="true"
@@ -10,7 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".NotesActivity"></activity>
-        <activity android:name=".AddNotesFragment" />
         <activity android:name=".ActualModMeds" />
         <activity android:name=".RegistrationActivity">
             <intent-filter>
@@ -22,7 +24,6 @@
         <activity android:name=".RegistrationActivity2" />
         <activity android:name=".MainActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".HomeFragment" />
     </application>
 
 </manifest>
