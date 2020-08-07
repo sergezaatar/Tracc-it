@@ -35,7 +35,7 @@
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="0dp"
                     android:padding="15dp"
-                    android:text="Add Your Medications Here!"
+                    android:text="Add Your Doctors Here!"
                     android:textColor="@color/whiteTextColor" />
 
             </RelativeLayout>
@@ -55,37 +55,44 @@
                     android:orientation="vertical">
 
                     <EditText
-                        android:id="@+id/medName"
+                        android:id="@+id/docName"
                         style="@style/modifiedEditText"
-                        android:hint="Medication Name"
+                        android:hint="Doctor's Name"
                         android:inputType="text"
                         android:maxLines="1" />
 
                     <EditText
-                        android:id="@+id/medDose"
+                        android:id="@+id/docEmail"
                         style="@style/modifiedEditText"
-                        android:hint="Medication Dose in Mg"
+                        android:hint="Doctor's Email"
                         android:inputType="number"
                         android:maxLines="1" />
 
                     <EditText
-                        android:id="@+id/medSignature"
+                        android:id="@+id/docPhone"
                         style="@style/modifiedEditText"
-                        android:hint="Medicine Signature"
+                        android:hint="Doctor's Phone"
                         android:inputType="text"
                         android:maxLines="1" />
 
-                    <TimePicker
-                        android:id="@+id/timePicker1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="410dp" />
+                    <EditText
+                        android:id="@+id/docAddress"
+                        style="@style/modifiedEditText"
+                        android:hint="Doctor's Address"
+                        android:inputType="text"
+                        android:maxLines="2" />
+
+                    <DatePicker
+                        android:id="@+id/datePicker1"
+                        android:layout_width="340dp"
+                        android:layout_height="385dp" />
 
                     <Button
-                        android:id="@+id/medsButton"
+                        android:id="@+id/docButton"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:backgroundTint="@color/themeColor"
-                        android:text="Add your medication!" />
+                        android:text="Confirm!" />
 
 
                 </LinearLayout>
