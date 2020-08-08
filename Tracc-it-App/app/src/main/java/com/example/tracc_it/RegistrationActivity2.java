@@ -28,6 +28,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
 
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.text.ParseException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -44,19 +46,16 @@ public class RegistrationActivity2 extends AppCompatActivity implements AdapterV
     /////////////////////////////////////////////////////////
     ////////////////////////////////////
     ///*/    I N P U T    V A R I A B L E S
-    /**/    private Spinner spinnerGender, heightFtEditText, heightInEditText;
+    /**/    private Spinner spinnerGender;
     /**/    private EditText ageEditText, mdNameEditText, weightEditText;
-    /**/    private EditText annualDate, lastDate;
+    /**/    private EditText annualDate, lastDate, heightEditText;
+    /**/    private Button registerButton2;
 
     /////////////////////////////////////////////////////////
     //    ////////////////////////////////////
     ///*/    U S E R    I N F O R M A T I O N
-    /**/    Number age;
-    /**/    DecimalFormat weight;
-    /**/    String mdName;
-    /**/    String gender, height;
-            Date annualCheckupDate, lastAppointmentDate;
-            Button registerButton2;
+    /**/     String gender;
+
 
 
     private String TAG;
@@ -76,8 +75,7 @@ public class RegistrationActivity2 extends AppCompatActivity implements AdapterV
         // Initialize the input variables with findViewById()
         ageEditText = findViewById(R.id.age);
         spinnerGender = findViewById(R.id.spinnerGender);
-        heightFtEditText = findViewById(R.id.heightFeet);
-        heightInEditText = findViewById(R.id.heightInches);
+        heightEditText = findViewById(R.id.height);
         mdNameEditText = findViewById(R.id.mdName);
         annualDate = findViewById(R.id.annualCheckupDate);
         lastDate = findViewById(R.id.lastAppointmentDate);
@@ -91,23 +89,6 @@ public class RegistrationActivity2 extends AppCompatActivity implements AdapterV
         // Apply the adapter to the spinner
         spinnerGender.setAdapter(adapter);
         spinnerGender.setOnItemSelectedListener(this);
-
-
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapterFeet = ArrayAdapter.createFromResource(this, R.array.feet_array, android.R.layout.simple_spinner_item);
-        // Specify the layout to use when the list of choices appears
-        adapterFeet.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
-        heightFtEditText.setAdapter(adapterFeet);
-        heightFtEditText.setOnItemSelectedListener(this);
-
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapterInches = ArrayAdapter.createFromResource(this, R.array.inches_array, android.R.layout.simple_spinner_item);
-        // Specify the layout to use when the list of choices appears
-        adapterInches.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
-        heightInEditText.setAdapter(adapterInches);
-        heightInEditText.setOnItemSelectedListener(this);
 
         registerButton2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,32 +111,56 @@ public class RegistrationActivity2 extends AppCompatActivity implements AdapterV
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         gender = adapterView.getItemAtPosition(i).toString();
-        height = adapterView.getItemAtPosition(i).toString()+'.'+ adapterView.getItemAtPosition(i).toString();
-
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
         gender = adapterView.getItemAtPosition(0).toString();
-        height = adapterView.getItemAtPosition(0).toString()+'.'+ adapterView.getItemAtPosition(0).toString();
-
     }
 
     private void uploadToDatabase()
     {
+        try {
+            database = FirebaseFirestore.getInstance();
+            Map<String, Object> userInfo = new HashMap<>();
+            userInfo.put("age", NumberFormat.getInstance().parse(ageEditText.getText().toString().trim()));
+            userInfo.put("gender", gender);
+            userInfo.put("height", heightEditText.getText().toString().trim());
+            userInfo.put("weight", NumberFormat.getInstance().parse(weightEditText.getText().toString().trim()));
+
+            database.collection("users").document(mAuth.getCurrentUser().getEmail())
+                    .set(userInfo)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Log.d(TAG, "DocumentSnapshot successfully written!");
+
+                            updateDoctor();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w(TAG, "Error writing document", e);
+                        }
+                    });
+
+        }catch (Exception ex) { Log.w(TAG, "Error writing document", ex); }
+
+
+
+    }
+
+    private void updateDoctor() {
         database = FirebaseFirestore.getInstance();
 
         Map<String, Object> userInfo = new HashMap<>();
-        userInfo.put("age", age);
-        userInfo.put("gender", gender);
-        userInfo.put("height", height);
-        userInfo.put("weight", weight);
-        userInfo.put("pcp", mdName);
-        userInfo.put("checkup", annualCheckupDate);
-        userInfo.put("lastAppt",lastAppointmentDate );
+        userInfo.put("checkup", annualDate.getText().toString().trim());
+        userInfo.put("lastAppt",lastDate.getText().toString().trim());
 
         database.collection("users").document(mAuth.getCurrentUser().getEmail())
-                .set(userInfo, SetOptions.merge())
+                .collection("doctor").document(mdNameEditText.getText().toString().trim())
+                .set(userInfo)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
@@ -174,11 +179,7 @@ public class RegistrationActivity2 extends AppCompatActivity implements AdapterV
                     }
                 });
 
-
     }
-
-
-
 
 
 }

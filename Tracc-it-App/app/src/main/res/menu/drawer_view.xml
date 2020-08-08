@@ -30,7 +30,7 @@
                     android:title="Log Vitals" />
                 <item
                     android:id="@+id/nav_mod_vitals_fragment"
-                    android:title="Modify Vitals" />
+                    android:title="View Past Vitals" />
             </group>
         </menu>
     </item>

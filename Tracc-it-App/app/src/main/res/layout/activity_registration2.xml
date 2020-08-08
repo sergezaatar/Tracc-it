@@ -79,27 +79,13 @@
                         android:maxLines="1" />
 
 
-                    <TextView
-                        android:id="@+id/textView3"
+                    <EditText
+                        android:id="@+id/height"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Height (down below)" />
-
-                    <Spinner
-                        android:id="@+id/heightFeet"
-                        android:layout_width="205dp"
-                        android:layout_height="wrap_content"
-                        android:foregroundTint="@color/colorPrimary"
-                        android:visibility="visible"
-                        tools:visibility="visible" />
-
-                    <Spinner
-                        android:id="@+id/heightInches"
-                        android:layout_width="205dp"
-                        android:layout_height="wrap_content"
-                        android:foregroundTint="@color/colorPrimary"
-                        android:visibility="visible"
-                        tools:visibility="visible" />
+                        android:ems="10"
+                        android:hint="ft in"
+                        android:inputType="number" />
 
                     <EditText
                         android:id="@+id/mdName"

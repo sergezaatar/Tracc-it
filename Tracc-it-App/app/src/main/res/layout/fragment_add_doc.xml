@@ -8,8 +8,7 @@
     android:layout_gravity="center"
     android:background="@color/register_bk_color"
     android:focusableInTouchMode="true"
-    android:gravity="center"
-    tools:context="com.example.tracc_it.VitalsActivity">
+    android:gravity="center">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -38,12 +37,20 @@
                     android:text="Add Your Doctors Here!"
                     android:textColor="@color/whiteTextColor" />
 
+                <ImageView
+                    android:layout_width="61dp"
+                    android:layout_height="36dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/ic_baseline_local_hospital_24" />
             </RelativeLayout>
 
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="599dp"
+                android:layout_height="681dp"
                 android:layout_marginTop="10dp"
                 app:cardBackgroundColor="@color/whiteTextColor"
                 app:cardCornerRadius="10dp">
@@ -86,6 +93,12 @@
                         android:id="@+id/datePicker1"
                         android:layout_width="340dp"
                         android:layout_height="385dp" />
+
+                    <CheckBox
+                        android:id="@+id/checkBoxMed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Would you like to set up a Notification for this medication?" />
 
                     <Button
                         android:id="@+id/docButton"

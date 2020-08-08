@@ -9,7 +9,7 @@ android:layout_gravity="center"
 android:background="@color/register_bk_color"
 android:focusableInTouchMode="true"
 android:gravity="center"
-tools:context="com.example.tracc_it.VitalsActivity">
+tools:context="com.example.tracc_it.VitalsFragmentMod">
 
 <ScrollView
     android:layout_width="match_parent"
@@ -30,12 +30,13 @@ tools:context="com.example.tracc_it.VitalsActivity">
 
             <TextView
                 style="@style/viewParent.headerText.NoMode"
-                android:layout_width="153dp"
-                android:layout_height="130dp"
+                android:layout_width="155dp"
+                android:layout_height="61dp"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
-                android:text="Add\nYour Vitals\nHere!"
-                android:textColor="@color/whiteTextColor" />
+                android:text="Past Vitals!"
+                android:textColor="@color/whiteTextColor"
+                android:textSize="30sp" />
 
             <ImageView
                 android:layout_width="188dp"
@@ -49,58 +50,52 @@ tools:context="com.example.tracc_it.VitalsActivity">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="285dp"
+            android:layout_height="329dp"
             android:layout_marginTop="10dp"
             app:cardBackgroundColor="@color/whiteTextColor"
             app:cardCornerRadius="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="274dp"
+                android:layout_height="300dp"
                 android:layout_margin="10dp"
                 android:orientation="vertical">
 
-                <EditText
-                    android:id="@+id/sugarLevel"
-                    style="@style/modifiedEditText"
-                    android:hint="Sugar Level"
-                    android:inputType="number"
-                    android:maxLines="1" />
-
-                <EditText
-                    android:id="@+id/diaBloodPressure"
-                    style="@style/modifiedEditText"
-                    android:hint="Diastolic Blood Pressure"
-                    android:inputType="number"
-                    android:maxLines="1" />
-
-                <EditText
-                    android:id="@+id/sysBloodPressure"
-                    style="@style/modifiedEditText"
-                    android:hint="Systolic Blood Pressure"
-                    android:inputType="number"
-                    android:maxLines="1" />
-
-                <EditText
-                    android:id="@+id/heartRate"
-                    style="@style/modifiedEditText"
-                    android:hint="Heart Rate"
-                    android:inputType="number"
-                    android:maxLines="1" />
-
-
-                <EditText
-                    android:id="@+id/oxygenLevel"
-                    style="@style/modifiedEditText"
-                    android:hint="Oxygen Level"
-                    android:maxLines="1" />
-
-                <Button
-                    android:id="@+id/vitalsButton"
+                <Spinner
+                    android:id="@+id/datesSpinner"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/themeColor"
-                    android:text="Submit Your Vitals!" />
+                    android:layout_height="59dp" />
+
+                <TextView
+                    android:id="@+id/sugarLevel"
+                    android:layout_width="match_parent"
+                    android:layout_height="43dp"
+                    android:text="SugarLevel" />
+
+                <TextView
+                    android:id="@+id/dBloodPressure"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:text="Dyastolic Blood Pressure" />
+
+                <TextView
+                    android:id="@+id/sBloodPressure"
+                    android:layout_width="match_parent"
+                    android:layout_height="33dp"
+                    android:text="Systolic Blood Pressure" />
+
+                <TextView
+                    android:id="@+id/heartRate"
+                    android:layout_width="match_parent"
+                    android:layout_height="37dp"
+                    android:text="Heart Rate" />
+
+
+                <TextView
+                    android:id="@+id/oxygenLevel"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:text="Oxygen Level" />
 
 
             </LinearLayout>
