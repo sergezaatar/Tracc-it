@@ -8,7 +8,8 @@
     android:layout_gravity="center"
     android:background="@color/register_bk_color"
     android:focusableInTouchMode="true"
-    android:gravity="center">
+    android:gravity="center"
+    tools:context="com.example.tracc_it.DocFragmentAdd">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -92,16 +93,16 @@
                     <DatePicker
                         android:id="@+id/datePicker1"
                         android:layout_width="340dp"
-                        android:layout_height="385dp" />
+                        android:layout_height="420dp" />
 
                     <CheckBox
                         android:id="@+id/checkBoxMed"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Would you like to set up a Notification for this medication?" />
+                        android:text="Would you like to set up a Notification for this appointment?" />
 
                     <Button
-                        android:id="@+id/docButton"
+                        android:id="@+id/adddocButton"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:backgroundTint="@color/themeColor"

@@ -9,7 +9,7 @@
     android:background="@color/register_bk_color"
     android:focusableInTouchMode="true"
     android:gravity="center"
-    tools:context="com.example.tracc_it.VitalsActivity">
+    tools:context="com.example.tracc_it.DocFragmentRemove">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -57,13 +57,10 @@
                     <Spinner
                         android:id="@+id/doctorList"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:foregroundTint="@color/colorPrimary"
-                        android:visibility="visible"
-                        tools:visibility="visible" />
+                        android:layout_height="57dp" />
 
                     <Button
-                        android:id="@+id/medsButton"
+                        android:id="@+id/removedocButton"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:backgroundTint="@color/themeColor"

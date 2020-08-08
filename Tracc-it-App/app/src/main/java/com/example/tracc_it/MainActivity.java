@@ -137,13 +137,13 @@ public class MainActivity extends AppCompatActivity {
 
             // Doctor options
             case R.id.nav_add_doctor_fragment:
-                fragmentClass = DocFragment.class;
+                fragmentClass = DocFragmentAdd.class;
                 break;
             case R.id.nav_mod_doctor_fragment:
-                fragmentClass = DocFragment2.class;
+                fragmentClass = DocFragmentMod.class;
                 break;
             case R.id.nav_rm_doctor_fragment:
-                fragmentClass = DocFragment3.class;
+                fragmentClass = DocFragmentRemove.class;
                 break;
 
             // Medication options

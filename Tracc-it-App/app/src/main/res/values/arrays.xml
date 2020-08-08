@@ -34,4 +34,11 @@
         <item>10</item>
         <item>11</item>
     </string-array>
+
+    <string-array name="doctors">
+        <item>Doctor List</item>
+        <item>Dr. Johnson</item>
+        <item>Dr. Rivera</item>
+        <item>Dr. Doe</item>
+    </string-array>
 </resources>
