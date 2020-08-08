@@ -5,9 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -15,9 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.FirebaseFirestore;
 
-public class NotesFragment extends Fragment {
+public class NotesFragmentView extends Fragment {
 
     /////////////////////////////////////////////////////////
     ////////////////////////////////////
@@ -34,7 +30,7 @@ public class NotesFragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_mod_notes, container, false);
+        return inflater.inflate(R.layout.fragment_view_notes, container, false);
     }
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
@@ -47,7 +43,6 @@ public class NotesFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(view.getContext(), "Note editing will be opened!", Toast.LENGTH_LONG).show();
-                startActivity(new Intent(view.getContext(), NotesFragmentAdd.class));
 
 
             }

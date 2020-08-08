@@ -63,16 +63,15 @@
                     android:orientation="vertical">
 
                     <EditText
-                        android:id="@+id/notesName"
+                        android:id="@+id/noteName"
                         android:layout_width="332dp"
                         android:layout_height="wrap_content"
                         android:hint="Note Title" />
 
-                    <EditText
-                        android:id="@+id/notesSubject"
-                        android:layout_width="339dp"
-                        android:layout_height="wrap_content"
-                        android:hint="Note Category" />
+                    <Spinner
+                        android:id="@+id/categorySpinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="59dp" />
 
                     <EditText
                         android:id="@+id/notesBody"

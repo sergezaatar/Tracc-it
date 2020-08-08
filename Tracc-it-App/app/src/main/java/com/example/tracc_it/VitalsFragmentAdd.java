@@ -74,11 +74,11 @@ public class VitalsFragmentAdd extends Fragment {
 
         Map<String, Object> vitals = new HashMap<>();
         try {
-            vitals.put("glucoselevel", NumberFormat.getInstance().getInstance().parse(textGlucoseLevel.getText().toString().trim()));
-            vitals.put("diabloodpressure", NumberFormat.getInstance().getInstance().parse(textDiaBloodPressure.getText().toString().trim()));
-            vitals.put("sysbloodpressure", NumberFormat.getInstance().getInstance().parse(textSysBloodPressure.getText().toString().trim()));
-            vitals.put("oxygenlevel", NumberFormat.getInstance().getInstance().parse(textOxygenLevel.getText().toString().trim()));
-            vitals.put("heartrate", NumberFormat.getInstance().getInstance().parse(textHeartRate.getText().toString().trim()));
+            vitals.put("glucoselevel", NumberFormat.getInstance().parse(textGlucoseLevel.getText().toString().trim()));
+            vitals.put("diabloodpressure", NumberFormat.getInstance().parse(textDiaBloodPressure.getText().toString().trim()));
+            vitals.put("sysbloodpressure", NumberFormat.getInstance().parse(textSysBloodPressure.getText().toString().trim()));
+            vitals.put("oxygenlevel", NumberFormat.getInstance().parse(textOxygenLevel.getText().toString().trim()));
+            vitals.put("heartrate", NumberFormat.getInstance().parse(textHeartRate.getText().toString().trim()));
         }
         catch (Exception ex)
         {
