@@ -39,14 +39,14 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // Set a Toolbar to replace the ActionBar.
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         // This will display an Up icon (<-), we will replace it with hamburger later
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Find our drawer view
-        mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawer = findViewById(R.id.drawer_layout);
         drawerToggle = setUpDrawerToggle();
 
         // Setup toggle to display hamburger icon with nice animation
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         mDrawer.addDrawerListener(drawerToggle);
 
         // Find our navigation view
-        nvDrawer = (NavigationView) findViewById(R.id.nvView);
+        nvDrawer = findViewById(R.id.nvView);
         // Setup drawer view
         setupDrawerContent(nvDrawer);
     }
@@ -113,18 +113,18 @@ public class MainActivity extends AppCompatActivity {
 
             // Vitals options
             case R.id.nav_log_vitals_fragment:
-                fragmentClass = VitalsFragment.class;
+                fragmentClass = VitalsFragmentAdd.class;
                 break;
             case R.id.nav_mod_vitals_fragment:
-                fragmentClass = VitalsFragment2.class;
+                fragmentClass = VitalsFragmentMod.class;
                 break;
 
             // Diet options
             case R.id.nav_log_diet_fragment:
-                fragmentClass = DietFragment.class;
+                fragmentClass = DietFragmentAdd.class;
                 break;
             case R.id.nav_mod_diet_fragment:
-                fragmentClass = DietFragment2.class;
+                fragmentClass = DietFragmentMod.class;
                 break;
 
             // Notes options
@@ -148,13 +148,13 @@ public class MainActivity extends AppCompatActivity {
 
             // Medication options
             case R.id.nav_add_meds_fragment:
-                fragmentClass = MedsFragment.class;
+                fragmentClass = MedsFragmentAdd.class;
                 break;
             case R.id.nav_mod_meds_fragment:
-                fragmentClass = MedsFragment2.class;
+                fragmentClass = MedsFragmentMod.class;
                 break;
             case R.id.nav_rm_meds_fragment:
-                fragmentClass = MedsFragment3.class;
+                fragmentClass = MedsFragmentRemove.class;
                 break;
 
             default:

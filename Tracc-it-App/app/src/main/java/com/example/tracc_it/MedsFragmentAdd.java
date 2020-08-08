@@ -23,7 +23,7 @@ import com.google.firebase.firestore.SetOptions;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MedsFragment extends Fragment {
+public class MedsFragmentAdd extends Fragment {
     /////////////////////////////////////////////////////////
     ////////////////////////////////////
     ///*/    F I R E    B A S E    V A R I A B L E S
@@ -57,7 +57,7 @@ public class MedsFragment extends Fragment {
         textMedName = view.findViewById(R.id.medName);
         textMedSignature = view.findViewById(R.id.medSignature);
         medButton = view.findViewById(R.id.medsButton);
-        timePicker1 = (TimePicker) view.findViewById(R.id.timePicker1);
+        timePicker1 = view.findViewById(R.id.timePicker1);
         int hour = timePicker1.getHour();
         int min = timePicker1.getMinute();
 

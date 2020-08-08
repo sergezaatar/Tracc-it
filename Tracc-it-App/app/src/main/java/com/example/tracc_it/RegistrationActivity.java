@@ -103,7 +103,7 @@ public class RegistrationActivity extends AppCompatActivity {
     }
 
 
-    private void createAccount(String email, String password, final String name, final String phone)
+    private void createAccount(String email, String password, String name, String phone)
     {
         mAuth.createUserWithEmailAndPassword( email, password )
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -114,41 +114,45 @@ public class RegistrationActivity extends AppCompatActivity {
 
                         else
                         {
-                            FirebaseUser user = mAuth.getCurrentUser();
-
-                            if ( user != null )
-                            {
-                                // First add the name to Firebase
-                                UserProfileChangeRequest profileChangeRequest = new UserProfileChangeRequest.Builder()
-                                        .setDisplayName(name).build();
-
-                                user.updateProfile(profileChangeRequest);
-
-                                // Add the phone to Firestore
-                                database = FirebaseFirestore.getInstance();
-                                Map<String, String> userInfo = new HashMap<>();
-                                userInfo.put("phone",phone);
-                                database.collection("users").document(mAuth.getCurrentUser().getEmail())
-                                        .set(userInfo)
-                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                            @Override
-                                            public void onSuccess(Void aVoid) {
-                                                Log.d(TAG, "DocumentSnapshot successfully written!");
-
-                                                startActivity(new Intent(RegistrationActivity.this, RegistrationActivity2.class));
-                                            }
-                                        })
-                                        .addOnFailureListener(new OnFailureListener() {
-                                            @Override
-                                            public void onFailure(@NonNull Exception e) {
-                                                Log.w(TAG, "Error writing document", e);
-                                            }
-                                        });
-                            }
+                            updateUser(phone, name);
                         }
 
                     }
                 });
+    }
+
+    private void updateUser(String phone, String name) {
+        FirebaseUser user = mAuth.getCurrentUser();
+
+        if ( user != null )
+        {
+            // First add the name to Firebase
+            UserProfileChangeRequest profileChangeRequest = new UserProfileChangeRequest.Builder()
+                    .setDisplayName(name).build();
+
+            user.updateProfile(profileChangeRequest);
+
+            // Add the phone to Firestore
+            database = FirebaseFirestore.getInstance();
+            Map<String, String> userInfo = new HashMap<>();
+            userInfo.put("phone",phone);
+            database.collection("users").document(mAuth.getCurrentUser().getEmail())
+                    .set(userInfo)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Log.d(TAG, "DocumentSnapshot successfully written!");
+
+                            startActivity(new Intent(RegistrationActivity.this, RegistrationActivity2.class));
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w(TAG, "Error writing document", e);
+                        }
+                    });
+        }
     }
 
 }

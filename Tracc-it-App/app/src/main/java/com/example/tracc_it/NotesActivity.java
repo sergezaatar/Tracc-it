@@ -79,7 +79,7 @@ public class NotesActivity extends AppCompatActivity {
             }
         };
 
-        FloatingActionButton floatingActionButton = (FloatingActionButton) findViewById(R.id.floatingActionButton);
+        FloatingActionButton floatingActionButton = findViewById(R.id.floatingActionButton);
         floatingActionButton.setOnClickListener(clicker);
 
         // Initialize all the input variables

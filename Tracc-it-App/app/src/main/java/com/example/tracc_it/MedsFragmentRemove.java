@@ -19,7 +19,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
-public class MedsFragment2 extends Fragment {
+public class MedsFragmentRemove extends Fragment {
 
     /////////////////////////////////////////////////////////
     ////////////////////////////////////
@@ -30,38 +30,31 @@ public class MedsFragment2 extends Fragment {
     /////////////////////////////////////////////////////////
     ////////////////////////////////////
     ///*/    I N P U T    V A R I A B L E S
-    /**/     EditText medDose, medSignature;
-    /**/     TimePicker timePicker1;
-    /**/     Spinner medName;
-    /**/     Button modmedsButton;
+    /**/     Spinner MedName;
+    /**/     Button removemedsButton;
 
     private String TAG;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_mod_meds, container, false);
+        return inflater.inflate(R.layout.fragment_rm_meds, container, false);
     }
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        medName = view.findViewById(R.id.medName);
-        medDose = view.findViewById(R.id.medDose);
-        medSignature = view.findViewById(R.id.medSignature);
-        modmedsButton = view.findViewById(R.id.modmedsButton);
-        timePicker1 = (TimePicker) view.findViewById(R.id.timePicker1);
-        int hour = timePicker1.getHour();
-        int min = timePicker1.getMinute();
+         MedName = view.findViewById(R.id.MedName);
+         removemedsButton = view.findViewById(R.id.removemedsButton);
 
-        ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.numbers, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence  > arrayAdapter = ArrayAdapter.createFromResource(view.getContext(), R.array.numbers, android.R.layout.simple_spinner_item);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        medName.setAdapter(arrayAdapter);
+        MedName.setAdapter(arrayAdapter);
 
 
-        modmedsButton.setOnClickListener(new View.OnClickListener() {
+        removemedsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //modify the medication
-                Toast.makeText(view.getContext(), "Medication has been Successfully Modified", Toast.LENGTH_SHORT).show();
+                //rmmed();
+                Toast.makeText(view.getContext(), "Medication has been Successfully Removed", Toast.LENGTH_SHORT).show();
             }
         });
     }

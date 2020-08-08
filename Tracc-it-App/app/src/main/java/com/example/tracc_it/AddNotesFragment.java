@@ -70,10 +70,10 @@ public class AddNotesFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_add_notes, container, false);
 
         // Initialize all the input variables
-        TextView notesName = (TextView) view.findViewById(R.id.notesName);
-        TextView notesSubject = (TextView) view.findViewById(R.id.notesSubject);
-        TextView notesBody = (TextView) view.findViewById(R.id.notesBody);
-        Button doneButton = (Button) view.findViewById(R.id.doneButton);
+        TextView notesName = view.findViewById(R.id.notesName);
+        TextView notesSubject = view.findViewById(R.id.notesSubject);
+        TextView notesBody = view.findViewById(R.id.notesBody);
+        Button doneButton = view.findViewById(R.id.doneButton);
 
         doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,7 +95,7 @@ public class AddNotesFragment extends Fragment {
         notes.put("notesBody", notesBody);
 
 
-        database.collection("users").document(mAuth.getCurrentUser().getEmail())
+        database.collection("notes").document(mAuth.getCurrentUser().getEmail())
                 .set(notes, SetOptions.merge())
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override

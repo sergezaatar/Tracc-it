@@ -54,7 +54,7 @@ public class ActualModMeds extends AppCompatActivity {
         textMedSignature = findViewById(R.id.medSignature);
         medButton = findViewById(R.id.medsButton);
         removemedsButton = findViewById(R.id.removemedsButton);
-        checkBoxMed=(CheckBox)findViewById(R.id.checkBoxMed);
+        checkBoxMed= findViewById(R.id.checkBoxMed);
 
 
 

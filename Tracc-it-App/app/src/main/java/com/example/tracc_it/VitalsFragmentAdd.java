@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-public class VitalsFragment extends Fragment {
+public class VitalsFragmentAdd extends Fragment {
     /////////////////////////////////////////////////////////
     ////////////////////////////////////
     ///*/    F I R E    B A S E    V A R I A B L E S
@@ -87,11 +87,10 @@ public class VitalsFragment extends Fragment {
 
 
         // Keep track of vitals per day
-        String date = new SimpleDateFormat("MM-dd-yyyy", Locale.getDefault()).format(new Date());
-        String time = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date());
+        String date = new SimpleDateFormat("MM-dd-yyyy 'at' hh:mm", Locale.getDefault()).format(new Date());
 
-        database.collection("vitals").document(mAuth.getCurrentUser().getEmail())
-                .collection(date).document(time)
+        database.collection("users").document(mAuth.getCurrentUser().getEmail())
+                .collection("vitals").document(date)
                 .set(vitals)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override

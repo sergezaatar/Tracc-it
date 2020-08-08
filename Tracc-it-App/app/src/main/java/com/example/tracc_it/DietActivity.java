@@ -16,10 +16,10 @@ public class DietActivity extends AppCompatActivity implements Diet_Dialog.DietD
    {
        super.onCreate(saveInstanceState);
        setContentView(R.layout.activity_diet);
-       submitMeal  = (TextView) findViewById(R.id.Submit_A_Meal);
-       numOfCal = (TextView) findViewById(R.id.Calories);
-       optionalNotes = (TextView) findViewById(R.id.Notes);
-       buttonSubmit = (Button) findViewById(R.id.Diet_Submit_Button);
+       submitMeal  = findViewById(R.id.Submit_A_Meal);
+       numOfCal = findViewById(R.id.Calories);
+       optionalNotes = findViewById(R.id.Notes);
+       buttonSubmit = findViewById(R.id.Diet_Submit_Button);
        buttonSubmit.setOnClickListener( new View.OnClickListener() {
            @Override
            public void onClick(View view)
