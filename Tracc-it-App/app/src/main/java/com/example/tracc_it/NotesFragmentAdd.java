@@ -80,8 +80,8 @@ public class NotesFragmentAdd extends Fragment implements AdapterView.OnItemSele
 
         // Note content
         Map<String, Object> notes = new HashMap<>();
-        notes.put("noteSubject", category);
-        notes.put("noteBody", notesBody.getText().toString().trim());
+        notes.put("category", category);
+        notes.put("content", notesBody.getText().toString().trim());
 
         // Upload to database by noteName
         database.collection("users").document(mAuth.getCurrentUser().getEmail())
@@ -94,7 +94,7 @@ public class NotesFragmentAdd extends Fragment implements AdapterView.OnItemSele
 
                         // After successful upload to database the user has added a note
                         // Go to the Notes View page
-                        Class fragmentClass = VitalsFragmentView.class;
+                        Class fragmentClass = NotesFragmentView.class;
                         Fragment fragment = null;
                         try {
                             fragment = (Fragment) fragmentClass.newInstance();

@@ -74,6 +74,7 @@ public class VitalsFragmentAdd extends Fragment {
 
         Map<String, Object> vitals = new HashMap<>();
         try {
+
             vitals.put("glucoselevel", NumberFormat.getInstance().parse(textGlucoseLevel.getText().toString().trim()));
             vitals.put("diabloodpressure", NumberFormat.getInstance().parse(textDiaBloodPressure.getText().toString().trim()));
             vitals.put("sysbloodpressure", NumberFormat.getInstance().parse(textSysBloodPressure.getText().toString().trim()));

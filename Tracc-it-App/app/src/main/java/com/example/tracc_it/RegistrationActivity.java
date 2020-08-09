@@ -41,6 +41,11 @@ public class RegistrationActivity extends AppCompatActivity {
     Button registerButton;
     TextView prompt;
 
+    String Name;
+    String Password;
+    String Email;
+    String PhoneNumber;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,17 +70,18 @@ public class RegistrationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                final String Name = name.getText().toString().trim();
-                String Password = password.getText().toString().trim();
-                final String Email = email.getText().toString().trim();
-                final String PhoneNumber = phoneNumber.getText().toString().trim();
+                Name = name.getText().toString().trim();
+                Password = password.getText().toString().trim();
+                Email = email.getText().toString().trim();
+                PhoneNumber = phoneNumber.getText().toString().trim();
+
 
                 if (TextUtils.isEmpty((Email))){
                     email.setError("Email is required");
                     return;
                 }
-                else if (TextUtils.isEmpty((Password))){
-                    password.setError("Password is required");
+                else if (TextUtils.isEmpty((Password)) || Password.length() < 7){
+                    password.setError("Password must be more than 6 characters");
                     return;
                 }
                 else if (TextUtils.isEmpty((PhoneNumber))){
@@ -87,7 +93,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     return;
                 }
                 else
-                    createAccount( Email,  Password, Name, PhoneNumber);
+                    createAccount();
             }
         });
 
@@ -103,56 +109,45 @@ public class RegistrationActivity extends AppCompatActivity {
     }
 
 
-    private void createAccount(String email, String password, String name, String phone)
+    private void createAccount()
     {
-        mAuth.createUserWithEmailAndPassword( email, password )
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        mAuth.createUserWithEmailAndPassword( Email, Password )
+                .addOnSuccessListener(this, new OnSuccessListener<AuthResult>() {
                     @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if ( !task.isSuccessful() )
-                            Toast.makeText(RegistrationActivity.this, "Sign Up Unsuccessful", Toast.LENGTH_SHORT).show();
-
-                        else
+                    public void onSuccess(AuthResult authResult) {
+                        FirebaseUser user = authResult.getUser();
+                        if ( authResult.getUser() != null )
                         {
-                            updateUser(phone, name);
-                        }
+                            // First add the name to Firebase
+                            UserProfileChangeRequest profileChangeRequest = new UserProfileChangeRequest.Builder()
+                                    .setDisplayName(Name).build();
 
+                            user.updateProfile(profileChangeRequest);
+
+                            // Add the phone to Firestore
+                            database = FirebaseFirestore.getInstance();
+                            Map<String, Object> userInfo = new HashMap<>();
+                            userInfo.put("phone",PhoneNumber);
+                            database.collection("users").document(mAuth.getCurrentUser().getEmail())
+                                    .set(userInfo)
+                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void aVoid) {
+                                            Log.d(TAG, "DocumentSnapshot successfully written!");
+
+                                            startActivity(new Intent(RegistrationActivity.this, RegistrationActivity2.class));
+                                        }
+                                    })
+                                    .addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Log.w(TAG, "Error writing document", e);
+                                        }
+                                    });
+                        }
                     }
+
                 });
-    }
-
-    private void updateUser(String phone, String name) {
-        FirebaseUser user = mAuth.getCurrentUser();
-
-        if ( user != null )
-        {
-            // First add the name to Firebase
-            UserProfileChangeRequest profileChangeRequest = new UserProfileChangeRequest.Builder()
-                    .setDisplayName(name).build();
-
-            user.updateProfile(profileChangeRequest);
-
-            // Add the phone to Firestore
-            database = FirebaseFirestore.getInstance();
-            Map<String, String> userInfo = new HashMap<>();
-            userInfo.put("phone",phone);
-            database.collection("users").document(mAuth.getCurrentUser().getEmail())
-                    .set(userInfo)
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            Log.d(TAG, "DocumentSnapshot successfully written!");
-
-                            startActivity(new Intent(RegistrationActivity.this, RegistrationActivity2.class));
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Log.w(TAG, "Error writing document", e);
-                        }
-                    });
-        }
     }
 
 }

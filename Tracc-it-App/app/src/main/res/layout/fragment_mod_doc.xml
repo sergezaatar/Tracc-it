@@ -55,16 +55,9 @@
                     android:orientation="vertical">
 
                     <Spinner
-                        android:id="@+id/doctorList"
+                        android:id="@+id/doctorSpinner"
                         android:layout_width="362dp"
-                        android:layout_height="wrap_content" />
-
-                    <EditText
-                        android:id="@+id/docName"
-                        style="@style/modifiedEditText"
-                        android:hint="Doctor's Name"
-                        android:inputType="number"
-                        android:maxLines="1" />
+                        android:layout_height="59dp" />
 
                     <EditText
                         android:id="@+id/docEmail"
@@ -86,11 +79,6 @@
                         android:hint="Doctor's Address"
                         android:inputType="text"
                         android:maxLines="1" />
-
-                    <DatePicker
-                        android:id="@+id/datePicker1"
-                        android:layout_width="340dp"
-                        android:layout_height="420dp" />
 
                     <Button
                         android:id="@+id/modifydocButton"

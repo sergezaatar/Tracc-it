@@ -107,11 +107,11 @@ public class VitalsFragmentView extends Fragment {
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.isSuccessful()) {
                             DocumentSnapshot doc = task.getResult();
-                            textGlucoseLevel.setText(doc.get("glucoselevel").toString());
-                            textDiaBloodPressure.setText(doc.get("diabloodpressure").toString());
-                            textSysBloodPressure.setText(doc.get("sysbloodpressure").toString());
-                            textOxygenLevel.setText(doc.get("oxygenlevel").toString());
-                            textHeartRate.setText(doc.get("heartrate").toString());
+                            textGlucoseLevel.setText(textGlucoseLevel.getText().toString().concat(": " + doc.get("glucoselevel").toString()));
+                            textDiaBloodPressure.setText(textDiaBloodPressure.getText().toString().concat(": " + doc.get("diabloodpressure").toString()));
+                            textSysBloodPressure.setText(textSysBloodPressure.getText().toString().concat(": " + doc.get("sysbloodpressure").toString()));
+                            textOxygenLevel.setText(textOxygenLevel.getText().toString().concat(": " + doc.get("oxygenlevel").toString()));
+                            textHeartRate.setText(textHeartRate.getText().toString().concat(": " + doc.get("heartrate").toString()));
                         }
                     }
                 });
