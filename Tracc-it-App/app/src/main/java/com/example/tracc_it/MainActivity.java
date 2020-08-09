@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
                 fragmentClass = VitalsFragmentAdd.class;
                 break;
             case R.id.nav_mod_vitals_fragment:
-                fragmentClass = VitalsFragmentMod.class;
+                fragmentClass = VitalsFragmentView.class;
                 break;
 
             // Diet options
@@ -129,10 +129,10 @@ public class MainActivity extends AppCompatActivity {
 
             // Notes options
             case R.id.nav_add_notes_fragment:
-                fragmentClass = NotesFragment.class;
-                break;
-            case R.id.nav_mod_notes_fragment:
                 fragmentClass = NotesFragmentAdd.class;
+                break;
+            case R.id.nav_view_notes_fragment:
+                fragmentClass = NotesFragmentView.class;
                 break;
 
             // Doctor options
