@@ -63,7 +63,7 @@ public class MedsFragmentRemove extends Fragment {
          MedName = view.findViewById(R.id.MedName);
          removemedsButton = view.findViewById(R.id.removemedsButton);
 
-        medsRef = database.collection("users").document(mAuth.getCurrentUser().getEmail()).collection("meds");
+        medsRef = database.collection("users").document(mAuth.getCurrentUser().getEmail()).collection("Rx");
         List<String> meds = new ArrayList<>();
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity().getApplicationContext(), android.R.layout.simple_spinner_item, meds);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -101,7 +101,7 @@ public class MedsFragmentRemove extends Fragment {
         });
     }
     private void confirmDelete(View view) {
-        new AlertDialog.Builder(getContext()).setTitle("Delete Doctor")
+        new AlertDialog.Builder(getContext()).setTitle("Delete Medication")
                 .setMessage("Are you sure you want to remove " + medName + "?")
                 .setCancelable(true)
                 .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
