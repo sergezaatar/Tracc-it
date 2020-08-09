@@ -80,6 +80,13 @@
                         android:inputType="text"
                         android:maxLines="1" />
 
+                    <CheckBox
+                        android:id="@+id/pcpCheckBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Primary care physician"
+                        android:textSize="12dp" />
+
                     <Button
                         android:id="@+id/modifydocButton"
                         android:layout_width="match_parent"
