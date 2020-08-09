@@ -9,7 +9,7 @@
     android:background="@color/register_bk_color"
     android:focusableInTouchMode="true"
     android:gravity="center"
-    tools:context="com.example.tracc_it.VitalsActivity">
+    tools:context="com.example.tracc_it.DocFragmentRemove">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -35,7 +35,7 @@
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="0dp"
                     android:padding="15dp"
-                    android:text="Add Your Medications Here!"
+                    android:text="Remove Your Doctors Here!"
                     android:textColor="@color/whiteTextColor" />
 
             </RelativeLayout>
@@ -54,38 +54,17 @@
                     android:layout_margin="10dp"
                     android:orientation="vertical">
 
-                    <EditText
-                        android:id="@+id/medName"
-                        style="@style/modifiedEditText"
-                        android:hint="Medication Name"
-                        android:inputType="text"
-                        android:maxLines="1" />
-
-                    <EditText
-                        android:id="@+id/medDose"
-                        style="@style/modifiedEditText"
-                        android:hint="Medication Dose in Mg"
-                        android:inputType="number"
-                        android:maxLines="1" />
-
-                    <EditText
-                        android:id="@+id/medSignature"
-                        style="@style/modifiedEditText"
-                        android:hint="Medicine Signature"
-                        android:inputType="text"
-                        android:maxLines="1" />
-
-                    <TimePicker
-                        android:id="@+id/timePicker1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="410dp" />
+                    <Spinner
+                        android:id="@+id/doctorList"
+                        android:layout_width="match_parent"
+                        android:layout_height="57dp" />
 
                     <Button
-                        android:id="@+id/medsButton"
+                        android:id="@+id/removedocButton"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:backgroundTint="@color/themeColor"
-                        android:text="Add your medication!" />
+                        android:text="Confirm!" />
 
 
                 </LinearLayout>

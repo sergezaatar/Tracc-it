@@ -9,7 +9,7 @@
     android:background="@color/register_bk_color"
     android:focusableInTouchMode="true"
     android:gravity="center"
-    tools:context="com.example.tracc_it.VitalsActivity">
+    tools:context="com.example.tracc_it.DocFragmentMod">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -35,7 +35,7 @@
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="0dp"
                     android:padding="15dp"
-                    android:text="Add Your Medications Here!"
+                    android:text="Modify Your Doctor Appointments Here!"
                     android:textColor="@color/whiteTextColor" />
 
             </RelativeLayout>
@@ -43,7 +43,7 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="599dp"
+                android:layout_height="681dp"
                 android:layout_marginTop="10dp"
                 app:cardBackgroundColor="@color/whiteTextColor"
                 app:cardCornerRadius="10dp">
@@ -54,38 +54,50 @@
                     android:layout_margin="10dp"
                     android:orientation="vertical">
 
-                    <EditText
-                        android:id="@+id/medName"
-                        style="@style/modifiedEditText"
-                        android:hint="Medication Name"
-                        android:inputType="text"
-                        android:maxLines="1" />
+                    <Spinner
+                        android:id="@+id/doctorList"
+                        android:layout_width="362dp"
+                        android:layout_height="wrap_content" />
 
                     <EditText
-                        android:id="@+id/medDose"
+                        android:id="@+id/docName"
                         style="@style/modifiedEditText"
-                        android:hint="Medication Dose in Mg"
+                        android:hint="Doctor's Name"
                         android:inputType="number"
                         android:maxLines="1" />
 
                     <EditText
-                        android:id="@+id/medSignature"
+                        android:id="@+id/docEmail"
                         style="@style/modifiedEditText"
-                        android:hint="Medicine Signature"
+                        android:hint="Doctor's Email"
                         android:inputType="text"
                         android:maxLines="1" />
 
-                    <TimePicker
-                        android:id="@+id/timePicker1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="410dp" />
+                    <EditText
+                        android:id="@+id/docPhone"
+                        style="@style/modifiedEditText"
+                        android:hint="Doctor's Phone"
+                        android:inputType="text"
+                        android:maxLines="1" />
+
+                    <EditText
+                        android:id="@+id/docAddress"
+                        style="@style/modifiedEditText"
+                        android:hint="Doctor's Address"
+                        android:inputType="text"
+                        android:maxLines="1" />
+
+                    <DatePicker
+                        android:id="@+id/datePicker1"
+                        android:layout_width="340dp"
+                        android:layout_height="420dp" />
 
                     <Button
-                        android:id="@+id/medsButton"
+                        android:id="@+id/modifydocButton"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:backgroundTint="@color/themeColor"
-                        android:text="Add your medication!" />
+                        android:text="Confirm!" />
 
 
                 </LinearLayout>

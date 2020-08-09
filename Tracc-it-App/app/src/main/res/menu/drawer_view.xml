@@ -68,8 +68,8 @@
                     android:id="@+id/nav_add_notes_fragment"
                     android:title="Add a Note" />
                 <item
-                    android:id="@+id/nav_mod_notes_fragment"
-                    android:title="Modify a Note" />
+                    android:id="@+id/nav_view_notes_fragment"
+                    android:title="View Notes" />
             </group>
         </menu>
     </item>

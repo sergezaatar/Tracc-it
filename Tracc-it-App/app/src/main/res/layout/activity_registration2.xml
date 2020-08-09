@@ -85,7 +85,7 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:hint="ft in"
-                        android:inputType="number" />
+                        android:inputType="text" />
 
                     <EditText
                         android:id="@+id/mdName"
