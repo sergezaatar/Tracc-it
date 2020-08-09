@@ -73,14 +73,14 @@
                         android:id="@+id/docEmail"
                         style="@style/modifiedEditText"
                         android:hint="Doctor's Email"
-                        android:inputType="number"
+                        android:inputType="text"
                         android:maxLines="1" />
 
                     <EditText
                         android:id="@+id/docPhone"
                         style="@style/modifiedEditText"
                         android:hint="Doctor's Phone"
-                        android:inputType="text"
+                        android:inputType="number"
                         android:maxLines="1" />
 
                     <EditText
