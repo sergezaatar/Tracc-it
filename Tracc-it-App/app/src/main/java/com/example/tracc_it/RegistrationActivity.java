@@ -41,6 +41,11 @@ public class RegistrationActivity extends AppCompatActivity {
     Button registerButton;
     TextView prompt;
 
+    String Name;
+    String Password;
+    String Email;
+    String PhoneNumber;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,10 +70,11 @@ public class RegistrationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                final String Name = name.getText().toString().trim();
-                String Password = password.getText().toString().trim();
-                final String Email = email.getText().toString().trim();
-                final String PhoneNumber = phoneNumber.getText().toString().trim();
+                Name = name.getText().toString().trim();
+                Password = password.getText().toString().trim();
+                Email = email.getText().toString().trim();
+                PhoneNumber = phoneNumber.getText().toString().trim();
+
 
                 if (TextUtils.isEmpty((Email))){
                     email.setError("Email is required");
@@ -87,7 +93,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     return;
                 }
                 else
-                    createAccount( Email,  Password, Name, PhoneNumber);
+                    createAccount();
             }
         });
 
@@ -103,9 +109,9 @@ public class RegistrationActivity extends AppCompatActivity {
     }
 
 
-    private void createAccount(String email, String password, String name, String phone)
+    private void createAccount()
     {
-        mAuth.createUserWithEmailAndPassword( email, password )
+        mAuth.createUserWithEmailAndPassword( Email, Password )
                 .addOnSuccessListener(this, new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
@@ -114,16 +120,16 @@ public class RegistrationActivity extends AppCompatActivity {
                         {
                             // First add the name to Firebase
                             UserProfileChangeRequest profileChangeRequest = new UserProfileChangeRequest.Builder()
-                                    .setDisplayName(name).build();
+                                    .setDisplayName(Name).build();
 
                             user.updateProfile(profileChangeRequest);
 
                             // Add the phone to Firestore
                             database = FirebaseFirestore.getInstance();
-                            Map<String, String> userInfo = new HashMap<>();
-                            userInfo.put("phone",phone);
+                            Map<String, Object> userInfo = new HashMap<>();
+                            userInfo.put("phone",PhoneNumber);
                             database.collection("users").document(mAuth.getCurrentUser().getEmail())
-                                    .set(userInfo, SetOptions.merge())
+                                    .set(userInfo)
                                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void aVoid) {

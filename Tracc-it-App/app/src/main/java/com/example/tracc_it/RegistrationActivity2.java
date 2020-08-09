@@ -20,6 +20,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
 
 import java.text.NumberFormat;
 import java.util.HashMap;
@@ -121,7 +122,7 @@ public class RegistrationActivity2 extends AppCompatActivity implements AdapterV
             userInfo.put("weight", NumberFormat.getInstance().parse(weightEditText.getText().toString().trim()));
 
             database.collection("users").document(mAuth.getCurrentUser().getEmail())
-                    .set(userInfo)
+                    .set(userInfo, SetOptions.merge())
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
