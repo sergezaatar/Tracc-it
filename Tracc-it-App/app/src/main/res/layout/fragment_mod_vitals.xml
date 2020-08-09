@@ -76,7 +76,7 @@ tools:context="com.example.tracc_it.VitalsFragmentView">
                     android:id="@+id/dBloodPressure"
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
-                    android:text="Dyastolic Blood Pressure" />
+                    android:text="Diastolic Blood Pressure" />
 
                 <TextView
                     android:id="@+id/sBloodPressure"

@@ -37,6 +37,7 @@
                     android:src="@drawable/profilepic" />
 
                 <TextView
+                    android:id="@+id/welcomeText"
                     style="@style/viewParent.headerText.NoMode"
                     android:layout_width="231dp"
                     android:layout_height="92dp"
