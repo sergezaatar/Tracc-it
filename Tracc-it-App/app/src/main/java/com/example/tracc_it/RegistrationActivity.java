@@ -80,8 +80,8 @@ public class RegistrationActivity extends AppCompatActivity {
                     email.setError("Email is required");
                     return;
                 }
-                else if (TextUtils.isEmpty((Password))){
-                    password.setError("Password is required");
+                else if (TextUtils.isEmpty((Password)) || Password.length() < 7){
+                    password.setError("Password must be more than 6 characters");
                     return;
                 }
                 else if (TextUtils.isEmpty((PhoneNumber))){
