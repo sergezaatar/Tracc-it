@@ -90,17 +90,6 @@
                         android:inputType="text"
                         android:maxLines="2" />
 
-                    <DatePicker
-                        android:id="@+id/datePicker1"
-                        android:layout_width="340dp"
-                        android:layout_height="420dp" />
-
-                    <CheckBox
-                        android:id="@+id/checkBoxMed"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Would you like to set up a Notification for this appointment?" />
-
                     <Button
                         android:id="@+id/adddocButton"
                         android:layout_width="match_parent"
