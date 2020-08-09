@@ -59,7 +59,7 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="textPersonName"
-                            android:text="Name of Meal" />
+                            android:hint="Name of Meal" />
 
                         <EditText
                             android:id="@+id/numOfCal"
@@ -67,7 +67,7 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="textPersonName"
-                            android:text="Amount of Calories" />
+                            android:hint="Amount of Calories" />
 
                         <EditText
                             android:id="@+id/addNotes"
@@ -75,7 +75,7 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:inputType="textPersonName"
-                            android:text="Additional Notes(Optional)" />
+                            android:hint="Additional Notes(Optional)" />
 
                         <Button
                             android:id="@+id/mealSubmitButton"

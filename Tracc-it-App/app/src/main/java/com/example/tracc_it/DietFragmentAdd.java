@@ -43,7 +43,7 @@ public class DietFragmentAdd extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_log_vitals, container, false);
+        return inflater.inflate(R.layout.fragment_log_diet, container, false);
     }
 
     // This event is triggered soon after onCreateView().
@@ -73,9 +73,8 @@ public class DietFragmentAdd extends Fragment {
 
         Map<String, Object> meals = new HashMap<>();
         try {
-            meals.put("typeofmeal", NumberFormat.getInstance().parse(textNameOfMeal.getText().toString().trim()));
             meals.put("numofcal", NumberFormat.getInstance().parse(textNumOfCalories.getText().toString().trim()));
-            meals.put("additionalnotes", NumberFormat.getInstance().parse(textAddNotes.getText().toString().trim()));
+            meals.put("notes", textAddNotes.getText().toString().trim());
         }
         catch (Exception ex)
         {
@@ -83,11 +82,9 @@ public class DietFragmentAdd extends Fragment {
         }
 
 
-        // Keep track of vitals per day
-        String date = new SimpleDateFormat("MM-dd-yyyy 'at' hh:mm", Locale.getDefault()).format(new Date());
-
+        // Keep track of Diet by name of meal
         database.collection("users").document(mAuth.getCurrentUser().getEmail())
-                .collection("meals").document(date)
+                .collection("meals").document(textNameOfMeal.getText().toString().trim()) // adds document name to meals
                 .set(meals)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override

@@ -48,7 +48,7 @@ public class DietFragmentView extends Fragment {
     /////////////////////////////////////////////////////////
     ////////////////////////////////////
     ///*/    I N P U T    V A R I A B L E S
-    /**/     TextView textNameOfMeal, textNumOfCalories,textAddNotes;
+    /**/     TextView textNumOfCalories,textAddNotes;
     /**/     Spinner mealSpinner;
 
     private String TAG;
@@ -64,9 +64,8 @@ public class DietFragmentView extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         // Setup any handles to view objects here
         //
-        textNameOfMeal= view.findViewById(R.id.nameOfMeal);
-        textNumOfCalories=view.findViewById(R.id.numOfCal);
-        textAddNotes=view.findViewById(R.id.addNotes);
+        textNumOfCalories=view.findViewById(R.id.view_calories);
+        textAddNotes=view.findViewById(R.id.view_add_notes);
 
         // Set up firebase stuff
         mAuth = FirebaseAuth.getInstance();
@@ -105,9 +104,8 @@ public class DietFragmentView extends Fragment {
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.isSuccessful()) {
                             DocumentSnapshot doc = task.getResult();
-                            textNameOfMeal.setText(doc.get("nameofmeal").toString());
-                            textNumOfCalories.setText(doc.get("amountofcalories").toString());
-                            textAddNotes.setText(doc.get("additionalnotes").toString());
+                            textNumOfCalories.setText(doc.get("numofcal").toString());
+                            textAddNotes.setText(doc.getString("notes"));
                         }
                     }
                 });
