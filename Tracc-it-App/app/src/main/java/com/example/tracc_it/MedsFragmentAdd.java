@@ -76,7 +76,6 @@ public class MedsFragmentAdd extends Fragment {
         database = FirebaseFirestore.getInstance();
 
         Map<String, Object> meds = new HashMap<>();
-        meds.put("medname", medName);
         meds.put("meddose", medDose);
         meds.put("medsignature", medSignature);
         meds.put("medhour", hour);
@@ -85,16 +84,12 @@ public class MedsFragmentAdd extends Fragment {
 
 
         database.collection("users").document(mAuth.getCurrentUser().getEmail())
+                .collection("meds").document(medName) // Store in meds collection by medication name
                 .set(meds, SetOptions.merge())
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
                         Log.d(TAG, "DocumentSnapshot successfully written!");
-
-                        // After successful upload to database the user has been registered
-                        // and can now navigate to the Home page
-                        startActivity(new Intent(getView().getContext(), MainActivity.class));
-
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {

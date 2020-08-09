@@ -89,7 +89,7 @@
                     <EditText
                         android:id="@+id/mdName"
                         style="@style/modifiedEditText"
-                        android:hint="Doctors Name"
+                        android:hint="Doctor's Name"
                         android:maxLines="1" />
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -100,19 +100,22 @@
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <EditText
-                        android:id="@+id/lastAppointmentDate"
+                        android:id="@+id/MD_PHONE_EDIT_TEXT"
                         style="@style/modifiedEditText"
-                        android:hint="Last Appointment Date"
-                        android:inputType="date"
+                        android:hint="Doctor's phone number"
                         android:maxLines="1" />
 
                     <EditText
-                        android:id="@+id/annualCheckupDate"
+                        android:id="@+id/MD_EMAIL_EDIT_TEXT"
                         style="@style/modifiedEditText"
-                        android:hint="Annual Checkup Date"
-                        android:inputType="date"
+                        android:hint="Doctor's email address"
                         android:maxLines="1" />
 
+                    <EditText
+                        android:id="@+id/MD_ADDRESS_EDIT_TEXT"
+                        style="@style/modifiedEditText"
+                        android:hint="Doctor's office address"
+                        android:maxLines="1" />
                     <Button
                         android:id="@+id/registerButton2"
                         android:layout_width="match_parent"

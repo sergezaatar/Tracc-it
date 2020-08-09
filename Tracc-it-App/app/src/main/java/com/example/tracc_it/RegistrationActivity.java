@@ -106,53 +106,42 @@ public class RegistrationActivity extends AppCompatActivity {
     private void createAccount(String email, String password, String name, String phone)
     {
         mAuth.createUserWithEmailAndPassword( email, password )
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                .addOnSuccessListener(this, new OnSuccessListener<AuthResult>() {
                     @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if ( !task.isSuccessful() )
-                            Toast.makeText(RegistrationActivity.this, "Sign Up Unsuccessful", Toast.LENGTH_SHORT).show();
-
-                        else
+                    public void onSuccess(AuthResult authResult) {
+                        FirebaseUser user = authResult.getUser();
+                        if ( authResult.getUser() != null )
                         {
-                            updateUser(phone, name);
-                        }
+                            // First add the name to Firebase
+                            UserProfileChangeRequest profileChangeRequest = new UserProfileChangeRequest.Builder()
+                                    .setDisplayName(name).build();
 
+                            user.updateProfile(profileChangeRequest);
+
+                            // Add the phone to Firestore
+                            database = FirebaseFirestore.getInstance();
+                            Map<String, String> userInfo = new HashMap<>();
+                            userInfo.put("phone",phone);
+                            database.collection("users").document(mAuth.getCurrentUser().getEmail())
+                                    .set(userInfo, SetOptions.merge())
+                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void aVoid) {
+                                            Log.d(TAG, "DocumentSnapshot successfully written!");
+
+                                            startActivity(new Intent(RegistrationActivity.this, RegistrationActivity2.class));
+                                        }
+                                    })
+                                    .addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Log.w(TAG, "Error writing document", e);
+                                        }
+                                    });
+                        }
                     }
+
                 });
-    }
-
-    private void updateUser(String phone, String name) {
-        FirebaseUser user = mAuth.getCurrentUser();
-
-        if ( user != null )
-        {
-            // First add the name to Firebase
-            UserProfileChangeRequest profileChangeRequest = new UserProfileChangeRequest.Builder()
-                    .setDisplayName(name).build();
-
-            user.updateProfile(profileChangeRequest);
-
-            // Add the phone to Firestore
-            database = FirebaseFirestore.getInstance();
-            Map<String, String> userInfo = new HashMap<>();
-            userInfo.put("phone",phone);
-            database.collection("users").document(mAuth.getCurrentUser().getEmail())
-                    .set(userInfo, SetOptions.merge())
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            Log.d(TAG, "DocumentSnapshot successfully written!");
-
-                            startActivity(new Intent(RegistrationActivity.this, RegistrationActivity2.class));
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Log.w(TAG, "Error writing document", e);
-                        }
-                    });
-        }
     }
 
 }

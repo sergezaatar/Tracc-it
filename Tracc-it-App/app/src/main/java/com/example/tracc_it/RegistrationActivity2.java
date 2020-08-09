@@ -1,6 +1,5 @@
 package com.example.tracc_it;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build;
 
@@ -9,28 +8,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.SetOptions;
 
-import java.text.DecimalFormat;
 import java.text.NumberFormat;
-import java.text.ParseException;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -47,8 +38,8 @@ public class RegistrationActivity2 extends AppCompatActivity implements AdapterV
     ////////////////////////////////////
     ///*/    I N P U T    V A R I A B L E S
     /**/    private Spinner spinnerGender;
-    /**/    private EditText ageEditText, mdNameEditText, weightEditText;
-    /**/    private EditText annualDate, lastDate, heightEditText;
+    /**/    private EditText ageEditText,  weightEditText, heightEditText;
+    /**/    private EditText mdAddressEditText, mdPhoneEditText, mdEmailEditText, mdNameEditText;
     /**/    private Button registerButton2;
 
     /////////////////////////////////////////////////////////
@@ -77,8 +68,9 @@ public class RegistrationActivity2 extends AppCompatActivity implements AdapterV
         spinnerGender = findViewById(R.id.spinnerGender);
         heightEditText = findViewById(R.id.height);
         mdNameEditText = findViewById(R.id.mdName);
-        annualDate = findViewById(R.id.annualCheckupDate);
-        lastDate = findViewById(R.id.lastAppointmentDate);
+        mdAddressEditText = findViewById(R.id.MD_ADDRESS_EDIT_TEXT);
+        mdPhoneEditText = findViewById(R.id.MD_PHONE_EDIT_TEXT);
+        mdEmailEditText = findViewById(R.id.MD_EMAIL_EDIT_TEXT);
         weightEditText = findViewById(R.id.weight);
         registerButton2 = findViewById(R.id.registerButton2);
 
@@ -155,8 +147,10 @@ public class RegistrationActivity2 extends AppCompatActivity implements AdapterV
         database = FirebaseFirestore.getInstance();
 
         Map<String, Object> userInfo = new HashMap<>();
-        userInfo.put("checkup", annualDate.getText().toString().trim());
-        userInfo.put("lastAppt",lastDate.getText().toString().trim());
+        userInfo.put("address", mdAddressEditText.getText().toString().trim());
+        userInfo.put("phone", mdPhoneEditText.getText().toString().trim());
+        userInfo.put("email", mdEmailEditText.getText().toString().trim());
+        userInfo.put("isPCP", true);
 
         database.collection("users").document(mAuth.getCurrentUser().getEmail())
                 .collection("doctor").document(mdNameEditText.getText().toString().trim())
