@@ -148,7 +148,7 @@ public class HomeFragment extends Fragment {
 //        i.setData(Uri.parse("tel: 222-222-2222"));
 //        startActivity(i);
         Intent intent = new Intent(Intent.ACTION_CALL);
-        intent.setData(Uri.parse("tel: 2142222222"));
+        intent.setData(Uri.parse("tel: " + mdPhone.getText().toString()));
         if (ActivityCompat.checkSelfPermission(view.getContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
             startActivity(intent);
         } else {

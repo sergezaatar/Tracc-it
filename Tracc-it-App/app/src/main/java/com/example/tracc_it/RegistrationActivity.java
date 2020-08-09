@@ -137,7 +137,7 @@ public class RegistrationActivity extends AppCompatActivity {
             Map<String, String> userInfo = new HashMap<>();
             userInfo.put("phone",phone);
             database.collection("users").document(mAuth.getCurrentUser().getEmail())
-                    .set(userInfo)
+                    .set(userInfo, SetOptions.merge())
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
