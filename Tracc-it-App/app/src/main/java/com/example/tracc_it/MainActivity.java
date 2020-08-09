@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
                 fragmentClass = DietFragmentAdd.class;
                 break;
             case R.id.nav_mod_diet_fragment:
-                fragmentClass = DietFragmentMod.class;
+                fragmentClass = DietFragmentView.class;
                 break;
 
             // Notes options
