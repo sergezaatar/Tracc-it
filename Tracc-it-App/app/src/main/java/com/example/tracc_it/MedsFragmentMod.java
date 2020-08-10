@@ -47,8 +47,7 @@ public class MedsFragmentMod extends Fragment {
     /////////////////////////////////////////////////////////
     ////////////////////////////////////
     ///*/    I N P U T    V A R I A B L E S
-    /**/     EditText medDose, medSignature;
-    /**/     TimePicker timePicker1;
+    /**/     EditText medDose, medSignature, timepicker1;
     /**/     Spinner medName;
     /**/     Button modmedsButton;
     /**/     String document;
@@ -67,11 +66,7 @@ public class MedsFragmentMod extends Fragment {
         medDose = view.findViewById(R.id.medDose);
         medSignature = view.findViewById(R.id.medSignature);
         modmedsButton = view.findViewById(R.id.modmedsButton);
-        timePicker1 = view.findViewById(R.id.timePicker1);
-        int hour = timePicker1.getHour();
-        int min = timePicker1.getMinute();
-        String Time;
-
+        timepicker1 =  view.findViewById(R.id.timepicker1);
 
         // Set up firebase stuff
         mAuth = FirebaseAuth.getInstance();
@@ -111,9 +106,11 @@ public class MedsFragmentMod extends Fragment {
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.isSuccessful()) {
                             DocumentSnapshot Rx = task.getResult();
-                            //textDoctorName.setText(textDoctorName.getText().toString().concat(": " + doc.get("name").toString()));
+//                            medName.setText(Rx.get("Rx Name").toString());
                             medDose.setText(Rx.get("Rx Dose").toString());
                             medSignature.setText(Rx.get("Rx Signature").toString());
+                            timepicker1.setText(Rx.get("Rx Time").toString());
+
 
                         }
                     }
@@ -150,7 +147,7 @@ public class MedsFragmentMod extends Fragment {
             //doctor.put("name", textDoctorName.getText().toString().trim());
             Rx.put("Rx Dose", medDose.getText().toString().trim());
             Rx.put("Rx Signature", medSignature.getText().toString().trim());
-//            Rx.put("Rx Time", Time);
+            Rx.put("Rx Time", timepicker1.getText().toString().trim());
 
 
         }
