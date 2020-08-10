@@ -3,71 +3,90 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/register_bk_color"
+    android:focusableInTouchMode="true"
+    android:gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#00BCD4">
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp">
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </ScrollView>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical"
+            android:padding="20dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="250dp">
+                android:layout_height="152dp">
 
                 <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="160dp"
-                    android:layout_height="160dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginEnd="247dp"
-                    android:layout_marginBottom="27dp"
-                    android:text="Past Diet\n Submissions"
-                    android:textSize="24sp" />
+                    style="@style/viewParent.headerText.NoMode"
+                    android:layout_width="220dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="-9dp"
+                    android:padding="15dp"
+                    android:text="Past Diet Submissions!\n"
+                    android:textAlignment="center"
+                    android:textColor="@color/whiteTextColor"
+                    android:textSize="30sp" />
+
+                <ImageView
+                    android:layout_width="135dp"
+                    android:layout_height="109dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginRight="1dp"
+                    android:src="@drawable/diet" />
+
             </RelativeLayout>
+
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="235dp">
+                android:layout_height="411dp"
+                android:layout_marginTop="10dp"
+                app:cardBackgroundColor="@color/whiteTextColor"
+                app:cardCornerRadius="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="375dp"
+                    android:layout_margin="10dp"
                     android:orientation="vertical">
+
 
                     <Spinner
                         android:id="@+id/mealSpinner"
                         android:layout_width="match_parent"
-                        android:layout_height="60dp" />
+                        android:layout_height="98dp" />
 
                     <TextView
                         android:id="@+id/view_calories"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="66dp"
                         android:ems="10" />
 
                     <TextView
                         android:id="@+id/view_add_notes"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="183dp"
                         android:ems="10"
                         android:text="No Past Diet submissions" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
         </LinearLayout>
-    </RelativeLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
