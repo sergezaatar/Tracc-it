@@ -1,6 +1,8 @@
 package com.example.tracc_it;
 
 import android.content.Intent;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,8 +24,13 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import static android.text.TextUtils.concat;
 
@@ -64,6 +71,11 @@ public class MedsFragmentAdd extends Fragment {
         timePicker1 = view.findViewById(R.id.timePicker1);
         int hour = timePicker1.getHour();
         int min = timePicker1.getMinute();
+        String currentTime = new SimpleDateFormat("HH:mm aaa", Locale.getDefault()).format(new Date());
+
+
+
+        final Ringtone r = RingtoneManager.getRingtone(view.getContext(),RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM));
         if(hour > 12) {
             am_pm = "PM";
             hour = hour - 12;
@@ -74,6 +86,24 @@ public class MedsFragmentAdd extends Fragment {
         }
         String time = hour + ":" + min +" "+ am_pm;
 
+        Timer t = new Timer();
+        t.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                //add an if they checked the checkbox
+                if(time.equals("11:56 PM")) {
+                    r.play();
+
+                }
+                else
+                {
+                    r.stop();
+
+                }
+
+
+            }
+        },0,1000);
 
 
         medButton.setOnClickListener(new View.OnClickListener() {
