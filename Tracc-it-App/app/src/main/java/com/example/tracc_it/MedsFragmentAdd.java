@@ -1,8 +1,15 @@
 package com.example.tracc_it;
 
+import android.app.AlarmManager;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,6 +21,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
@@ -72,6 +80,7 @@ public class MedsFragmentAdd extends Fragment {
         int hour = timePicker1.getHour();
         int min = timePicker1.getMinute();
         String currentTime = new SimpleDateFormat("HH:mm aaa", Locale.getDefault()).format(new Date());
+        createNotificationChannel();
 
 
 
@@ -93,7 +102,14 @@ public class MedsFragmentAdd extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(view.getContext(), "Your medication has been added!", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(view.getContext(), ReminderBroadcast.class);
+                PendingIntent pendingIntent = PendingIntent.getBroadcast(view.getContext(),0,intent,0);
+                AlarmManager alarmManager =(AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
+                long timeatButtonClick = System.currentTimeMillis();
+                long tenSecondsinMillsis =  1000 * 10;
+                alarmManager.set(AlarmManager.RTC_WAKEUP,timeatButtonClick + tenSecondsinMillsis, pendingIntent);
                 addMeds(time);
+
 
             }
         });
@@ -149,5 +165,17 @@ public class MedsFragmentAdd extends Fragment {
                     }
                 });
 
+    }
+    public void createNotificationChannel(){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            CharSequence name = "Lemmmmm";
+            String description = "Jennnn";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel("Nnotifff", name, importance);
+            channel.setDescription(description);
+
+            NotificationManager notificationManager = getActivity().getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
     }
 }
