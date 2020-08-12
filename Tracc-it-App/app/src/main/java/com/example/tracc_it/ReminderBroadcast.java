@@ -12,11 +12,12 @@ import androidx.core.app.NotificationManagerCompat;
 public class ReminderBroadcast extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent){
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "Notify Lemubit")
-                .setSmallIcon(R.drawable.diet)
-                .setContentTitle("Here ")
-                .setContentText(" Hiiii ")
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "Noo")
+                .setSmallIcon(R.drawable.ic_baseline_favorite_border_24)
+                .setContentTitle("Medication Alert!")
+                .setContentText(" It is time to take your medication! ")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
         notificationManager.notify(100,builder.build());
