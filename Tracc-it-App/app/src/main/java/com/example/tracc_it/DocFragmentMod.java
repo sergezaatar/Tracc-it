@@ -48,7 +48,6 @@ public class DocFragmentMod extends Fragment {
     ///*/    I N P U T    V A R I A B L E S
     /**/     EditText textDoctorName, textDoctorEmail, textDoctorPhone, textDoctorAddress;
     /**/     Button modifydocButton;
-    /**/     CheckBox pcpCheckBox;
     /**/     Spinner doctorSpinner;
     /**/     String document;
 
@@ -69,19 +68,7 @@ public class DocFragmentMod extends Fragment {
         textDoctorEmail = view.findViewById(R.id.docEmail);
         textDoctorPhone = view.findViewById(R.id.docPhone);
         textDoctorAddress = view.findViewById(R.id.docAddress);
-        pcpCheckBox = view.findViewById(R.id.pcpCheckBox);
         modifydocButton = view.findViewById(R.id.modifydocButton);
-
-        pcpCheckBox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                boolean checked = ((CheckBox) view).isChecked();
-                if ( checked )
-                {
-
-                }
-            }
-        });
 
         // Set up firebase stuff
         mAuth = FirebaseAuth.getInstance();

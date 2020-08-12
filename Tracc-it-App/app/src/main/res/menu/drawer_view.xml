@@ -57,7 +57,7 @@
                     android:title="Log Diet info" />
                 <item
                     android:id="@+id/nav_mod_diet_fragment"
-                    android:title="Modify Diet info" />
+                    android:title="View Diet info" />
             </group>
         </menu>
     </item>

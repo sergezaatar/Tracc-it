@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -111,6 +112,18 @@ public class MedsFragmentRemove extends Fragment {
                             @Override
                             public void onSuccess(Void aVoid) {
                                 Toast.makeText(view.getContext(), "Medication has been successfully removed from the list.", Toast.LENGTH_SHORT).show();
+                                // After successful upload to database the user has added a note
+                                // Go to the Notes View page
+                                Class fragmentClass = HomeFragment.class;
+                                Fragment fragment = null;
+                                try {
+                                    fragment = (Fragment) fragmentClass.newInstance();
+                                    // Insert the fragment by replacing any existing fragment
+                                    FragmentManager fragmentManager = getFragmentManager();
+                                    fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
