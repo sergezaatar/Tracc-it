@@ -86,24 +86,7 @@ public class MedsFragmentAdd extends Fragment {
         }
         String time = hour + ":" + min +" "+ am_pm;
 
-        Timer t = new Timer();
-        t.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                //add an if they checked the checkbox
-                if(time.equals("11:56 PM")) {
-                    r.play();
 
-                }
-                else
-                {
-                    r.stop();
-
-                }
-
-
-            }
-        },0,1000);
 
 
         medButton.setOnClickListener(new View.OnClickListener() {
