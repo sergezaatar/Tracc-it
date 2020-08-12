@@ -9,7 +9,7 @@ android:layout_gravity="center"
 android:background="@color/register_bk_color"
 android:focusableInTouchMode="true"
 android:gravity="center"
-tools:context="com.example.tracc_it.VitalsActivity">
+tools:context="com.example.tracc_it.VitalsFragmentAdd">
 
 <ScrollView
     android:layout_width="match_parent"
@@ -93,6 +93,7 @@ tools:context="com.example.tracc_it.VitalsActivity">
                     android:id="@+id/oxygenLevel"
                     style="@style/modifiedEditText"
                     android:hint="Oxygen Level"
+                    android:inputType="number"
                     android:maxLines="1" />
 
                 <Button

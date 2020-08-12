@@ -1,8 +1,15 @@
 package com.example.tracc_it;
 
+import android.app.AlarmManager;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,6 +21,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
@@ -51,14 +59,28 @@ public class MedsFragmentAdd extends Fragment {
     ////////////////////////////////////
     ///*/    I N P U T    V A R I A B L E S
     /**/     EditText textMedName, textMedDose, textMedSignature;
-    /**/     Button medButton, editButton;
+    /**/     Button medsButton, editButton;
     /**/     TimePicker timePicker1;
 
     private String TAG;
 
+    private void createNotificationChannel(){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            CharSequence name = "Lemmmmm";
+            String description = "Jennnn";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel("Noo", name, importance);
+            channel.setDescription(description);
+
+            NotificationManager notificationManager = getActivity().getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+    }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        createNotificationChannel();
+
         return inflater.inflate(R.layout.fragment_add_meds, container, false);
     }
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -67,10 +89,14 @@ public class MedsFragmentAdd extends Fragment {
         textMedDose = view.findViewById(R.id.medDose);
         textMedName = view.findViewById(R.id.medName);
         textMedSignature = view.findViewById(R.id.medSignature);
-        medButton = view.findViewById(R.id.medsButton);
+        medsButton = view.findViewById(R.id.medsButton);
         timePicker1 = view.findViewById(R.id.timePicker1);
-        int hour = timePicker1.getHour();
-        int min = timePicker1.getMinute();
+        int hour = (timePicker1.getHour())*3600;
+        int min = (timePicker1.getMinute())*60;
+        Calendar cal = Calendar.getInstance();
+        long millis = hour+min;
+
+
         String currentTime = new SimpleDateFormat("HH:mm aaa", Locale.getDefault()).format(new Date());
 
 
@@ -89,11 +115,18 @@ public class MedsFragmentAdd extends Fragment {
 
 
 
-        medButton.setOnClickListener(new View.OnClickListener() {
+        medsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(view.getContext(), "Your medication has been added!", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(view.getContext(), ReminderBroadcast.class);
+                PendingIntent pendingIntent = PendingIntent.getBroadcast(view.getContext(),0,intent,0);
+                AlarmManager alarmManager =(AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
+                long timeatButtonClick = System.currentTimeMillis();
+                long tenSecondsinMillsis =  1000 * 10;
+                alarmManager.set(AlarmManager.RTC_WAKEUP,millis, pendingIntent);
                 addMeds(time);
+
 
             }
         });
@@ -150,4 +183,5 @@ public class MedsFragmentAdd extends Fragment {
                 });
 
     }
+
 }

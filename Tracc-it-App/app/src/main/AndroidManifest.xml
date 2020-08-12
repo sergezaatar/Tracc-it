@@ -3,6 +3,8 @@
     package="com.example.tracc_it">
     <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SET_ALARM"/>
+
 
 
     <application
@@ -22,6 +24,7 @@
         <activity android:name=".RegistrationActivity2" />
         <activity android:name=".MainActivity" />
         <activity android:name=".LoginActivity" />
+        <receiver android:name=".ReminderBroadcast"/>
     </application>
 
 </manifest>
