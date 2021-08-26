@@ -7,7 +7,7 @@ Collaborators to this repository include:
 
 **Calvin Mata**
 
-**Serge Zaatar (https://github.com/Latinz117)** 
+**Serge Zaatar (https://github.com/sergezaatar)** 
 
 **Edrik Aguilera (https://github.com/driko-development)**
 
